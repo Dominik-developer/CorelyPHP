@@ -1,0 +1,58 @@
+
+Documentation of blog website
+
+Version: 1.0
+Author: Dominik Szczepański
+
+
+Documentation include: 
+    1. General descriptions of components
+        1.1  Blog website - user side
+        1.2  Datebases
+        1.3  Admin panel
+        1.4
+    2. Description of mechanics and logic
+    3. Used function and more important variables
+        3.1 PHP functions and connections do db
+            3.1.1 Admin panel side functions
+            3.1.2 Blog user side functions
+        3.2 JavaScript
+    4. CSS files explained
+    5. DB explained
+    6. Safety
+        6.1 Methods
+        6.2 Vunerabilities
+    7. Things that may be improved
+    8. Resourses used in process of production 
+    9. Contact info
+
+
+1. General descriptions of components
+    Webiste is devided on three parts: user side, datebases and admin side.
+
+    1.1 Blog webiste - user side
+        This part cover client side of website. All files are storeage in 'public' folder. NOT END
+
+    1.2 Datebases
+        Datebase for this webiste is called 'blog'. Inside we can find 3 tables. Table 'admin' covers login and password for admins. Next table 'servis' include blog servis status in format 0 for false and 1 for true. Last table 'articles' include all articles posted on blog. It has 5 columns: primary ID with AI int(11), title Varchar(25), date_of_published timestap, text varchar(255) and photo_1 longblob.
+    
+    1.3 Admin panel
+        Admin panel
+
+2. Description of mechanics and logic
+
+
+3. Used functions and more important variables
+
+    3.1 PHP functions and connections do db
+
+        3.1.1 Admin panel side functions
+
+        3.1.2 Blog user side functions
+    
+    3.2 JavaScript
+
+
+
+
+
