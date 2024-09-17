@@ -36,8 +36,8 @@ include_once 'functions.php';
     <meta name="referrer" content="no-referrer">
 
     <!-----====== CSS ====== -->
-    <link rel="stylesheet" href="panel.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" type="text/css" href="panel.css">
+    <link rel="stylesheet" type="text/css" href="main.css" >
 
     <!-----==== Boxicons CSS ==== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -127,9 +127,10 @@ include_once 'functions.php';
     </nav>
 
     <main>
-        <section class="section " id="allSection">
-            <a>Dashboard</a>
-
+        <section class="section" id="allSection">
+            <?php
+                echo '<a>Dashboard</a>';
+            ?>
         </section>
 
         <section class="section" id="section1">
@@ -144,7 +145,7 @@ include_once 'functions.php';
             ?>
         </section>
 
-        <section class="section" id="section3">
+        <section class="section visible" id="section3">
             <?php
                 serviceBreak();
             ?>
@@ -155,7 +156,7 @@ include_once 'functions.php';
 
         </section>-->
 
-        <section class="section visible" id="section4">
+        <section class="section" id="section4">
             <?php
                 settings();
             ?>
