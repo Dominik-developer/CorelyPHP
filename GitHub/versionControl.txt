@@ -1,7 +1,0 @@
-
-Version control / version history
-
-
-V 0.1
-   Production
-
