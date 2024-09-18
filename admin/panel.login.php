@@ -2,22 +2,12 @@
 <?php
 session_start();
 
-
-
 if((isset($_SESSION['adminLoged'])) && ($_SESSION['aminLoged'] == true))
 {
     //unset($_SESSION['adminLoged']);
     header('Location: panel.php');
     exit();
-
-    //jesli nie chcemy by zosrtały wykonane następne instrukcje w skrypcie php 
-    //znajdujące sie poniej instrukcji header naley uzyć exit(); 
-    //nastąpi natychmiastowe przekierowanie 
-    // nie kończymy imprzy, wychodzimy po angielsku 
-
 }
-
-
 
 ?>
 <html lang="en">
