@@ -22,7 +22,7 @@
             <article class="mainArticle visible">
                 <div class="form-container">
                     <h2>New article</h2>
-                    <form action="new_article.alg.php" method="POST" enctype="multipart/form-data">
+                    <form action="all.test.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-25">
                                 <label for="title">Article title</label>
@@ -76,14 +76,52 @@
         <section class="mainSection" >
             <article class="mainArticle visible" id="">
             <?php
-                echo 'Hello articles';
+                //include('all_article.alg.php');
+
+                //all();
+
+            
+            require 'panel.connect.php';
+
+
+            $conn = @new mysqli($host, $db_user, $db_password, $db_name);
+            error_reporting(E_ALL);
+            ini_set('display_errors', 1);
+
+            // Sprawdzanie błędów połączenia
+            if ($conn->connect_errno) {
+                echo "Error: " . $conn->connect_error;
+                return; // Dodano return, aby zakończyć funkcję w przypadku błędu
+            } else {
+
+                // Wykonanie zapytania
+                $sql = "SELECT title FROM articles";
+                //$sql ="SELECT title FROM articles;";
+                $result = $conn->query($sql); 
+                
+            
+
+                // Sprawdzenie czy są wyniki
+                if ($result->num_rows > 0) {
+                    $i=1;
+                    // Pętla po wynikach
+                    while ($row = $result->fetch_assoc()) {
+                        echo 'Artykuł '. $i . ': '. $row['title'] . "<br>";
+                        $i = $i+1;
+                    }
+                } else {
+                    echo "Brak wyników";
+                }
+
+                $conn->close(); 
+            }
             ?>
-
+                
             </article>
 
-            <article class="mainArticle" id="">
+            <!--<article class="mainArticle" id="">
                 Search
-            </article>
+            </article>-->
         </section>
     </article>
     <?php
@@ -177,4 +215,4 @@
     <?php
     };
 
-?>
+    
