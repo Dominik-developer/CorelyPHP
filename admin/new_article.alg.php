@@ -2,77 +2,99 @@
 
 session_start();
 
-if(!isset ($_SESSION['adminLoged']))
-{
-    header('Location:panel.login.php');
+
+if(!isset ($_SESSION['adminLoged'])) {
+    header('Location: panel.login.php');
     exit();
 }
 
-//additional files
 require_once 'panel.connect.php';
 
+mysqli_report(MYSQLI_REPORT_STRICT);
 
 $conn = @new mysqli($host, $db_user, $db_password, $db_name);
 
-if((!isset($_POST['title'])) || (!isset($_POST['textUpload'])) || (!isset($_POST['photoUpload'])) )
-{
-    header('Location:panel.login.php');
+
+if(empty($_POST['title']) || empty($_FILES['textUpload']['name']) || empty($_FILES['photoUpload']['name'])) {
+    echo 'POST ERROR';
+    header('Location: panel.php');
     exit();
 }
-    $title = $_POST['title'];
-    
-    // Odczyt pliku tekstowego (textUpload)
-    $textUpload = file_get_contents($_FILES['textUpload']['tmp_name']);
-
-    // Odczyt pliku graficznego (photoUpload)
-    $photoUpload = file_get_contents($_FILES['photoUpload']['tmp_name']);
 
 
-    if ($conn->connect_errno!=0) {
+$title = mysqli_real_escape_string($conn, $_POST['title']);
+$textUpload = file_get_contents($_FILES['textUpload']['tmp_name']);
+$photo = $_FILES['photoUpload'];
 
-        echo "Error: ".$conn->connect_error;
-    }else{
 
-        $sql = "SELECT * FROM articles WHERE title = $title ";
 
-        if($result = @$conn->query(sprintf($sql)))
-        {
 
-            $num = $result->num_rows;
+if ($conn->connect_errno != 0) {
+    echo "Error: " . $conn->connect_error;
+    throw new Exception(mysqli_connect_errno());
+} else {
+    // Sprawdzenie, czy artykuł o danym tytule już istnieje
+    $sql = "SELECT * FROM articles WHERE title = '$title'";  
+    if($result = $conn->query($sql)) {
+        $num = $result->num_rows;
 
-            if($num != 0)
-            {
-                echo('ERROR: file with this title already exist!!');
-                echo('Location: error.html'); //header: ; in future
-                exit();
+        if($num != 0) {
+            echo 'ERROR: Artykuł o tym tytule już istnieje!';
+            //header('Location: error.html');
+            exit();
+        } else {
 
-            }else{
+            $target_dir = "articles_photos/"; // sciezka do folderu
+            $photo_extension = strtolower(pathinfo($photo['name'], PATHINFO_EXTENSION)); //pobiera dane o zdjęciu
 
-                //$row = $result->fetch_assoc();
-                
-                //test
-                echo $textUpload;
+            // Zastąp spacje i inne niebezpieczne znaki w tytule
+            $sanitized_title = preg_replace('/[^a-zA-Z0-9-_]/', '_', $title); // Zmienia niebezpieczne znaki na '_'
+            $new_photo_name = $sanitized_title . '.' . $photo_extension;
+            $target_file = $target_dir . $new_photo_name;
 
-                // Przygotowanie zapytania do wstawienia danych
-                //$stmt_insert = $conn->prepare("INSERT INTO articles (title, text, photo_1) VALUES (?, ?, ?)");
-                //$stmt_insert->bind_param('ssb', $title, $textUpload, $photoUpload); // 'b' oznacza dane binarne
 
-                /*
-                if ($stmt_insert->execute()) {
-                    echo "Article was successfully added to the database.";
-                    // header("Location: panel.php"); // Odkomentuj, jeśli potrzebujesz przekierowania
+
+
+
+            // Sprawdzenie rozszerzenia pliku graficznego
+            $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+            if (in_array($photo_extension, $allowed_types)) {
+
+                // Przenoszenie pliku do folderu articles_photos
+                if (move_uploaded_file($photo['tmp_name'], $target_file)) {
+
+
+
+                    // Wstawianie artykułu do bazy danych z zapisaniem ścieżki do zdjęcia
+                    $sql_insert = "INSERT INTO articles (title, text, photo_path) VALUES (?, ?, ?)";
+                    $stmt_insert = $conn->prepare($sql_insert);
+                    $stmt_insert->bind_param('sss', $title, $textUpload, $target_file);
+
+
+                    if ($stmt_insert->execute()) {
+                        echo "Artykuł został pomyślnie dodany do bazy danych.";
+                        header("Location: panel.php"); // Przekierowanie po sukcesie
+                    } else {
+                        echo "Błąd podczas dodawania artykułu: " . $conn->error;
+                    }
+
+                    $stmt_insert->close();
+
                 } else {
-                    echo "Error: Something went wrong during inserting the article: " . $conn->error;
+                    echo "Błąd podczas przesyłania pliku.";
+                    exit();
                 }
-            
-                $stmt_insert->close();
-
-                */
-                
-                
+            } else {
+                echo "Nieprawidłowy format pliku. Dozwolone formaty: JPG, JPEG, PNG, GIF.";
+                exit();
             }
         }
-        $conn->close();
+    } else {
+        throw new Exception($conn->error);
     }
 
-//exit();
+    $conn->close();
+}
+
+exit();
+
