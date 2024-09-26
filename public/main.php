@@ -3,7 +3,7 @@
 
 session_start();
 
-include_once 'page.functions.php';
+include_once 'functions.php';
 require_once 'service.alg.php';
 
 service();
@@ -13,7 +13,7 @@ service();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog page</title>
+    <title>Blog Home Page</title>
 
     <link rel="stylesheet" href="main.css" />
 
@@ -26,7 +26,7 @@ service();
     </header>
 
     <nav>
-        <a class="current">Blog Main Page</a>
+        <a class="current">Blog Home Page</a>
     </nav>
 
     <main>
