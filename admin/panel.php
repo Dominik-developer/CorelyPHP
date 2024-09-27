@@ -10,6 +10,15 @@ if(!isset ($_SESSION['adminLoged']))
     exit();
 }
 
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+    // Sesja wygasła - usuń dane sesji
+    session_unset();     // Usuń wszystkie zmienne sesji
+    session_destroy();   // Zniszcz sesję
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // Aktualizacja czasu ostatniej aktywności
+
+
 //additional files
 require_once 'panel.connect.php';
 include_once 'functions.php';
