@@ -33,13 +33,30 @@ function articles($restored_title){
 
                 $row = $result->fetch_assoc();
 
-                echo ' it works';
+                //echo '<br>'.$row['title'].'<br>'.$row['text'].'<br>'.$row['photo_path'].'<br>';
 
-                echo '<br>'.$row['title'].'<br>'.$row['text'].'<br>'.$row['photo_path'].'<br>';
+                echo'
+                    <article> 
+                        <header>
+                            <a>'.$row['title'].'</a>
+                        </header>
+                        
+                        <div id="photo">
+                            <img src="../'.$row['photo_path'].'" alt="photo from article ">
+                        </div>
 
+                        <p>
+                            '.$row['text'].'
+                        <p>
 
-                
-                
+                        <footer>
+                            Data publikacji: '.$row['date_of_publish'].'
+                        </footer>
+
+                    </article>';
+
+                    // '.$row[''].'
+
             } else {
             
                 echo 'last error ';
