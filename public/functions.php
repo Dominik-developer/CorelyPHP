@@ -27,7 +27,7 @@ function all_articles(){
         return;
     } else {
 
-        $sql = "SELECT `ID`, `title` FROM `articles` ";
+        $sql = "SELECT `ID`, `title`, `text` FROM `articles` ";
         $result = $conn->query($sql); 
         
         if ($result->num_rows > 0) {
