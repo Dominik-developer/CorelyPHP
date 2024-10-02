@@ -28,7 +28,7 @@
                                 <label for="title">Article title</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="title" name="title" required="required" placeholder="Title..">
+                                <input type="text" id="title" name="title" required="required" placeholder="Title.." patter="">
                             </div>
                         </div>
                         <div class="row">
@@ -73,56 +73,20 @@
 
         </section>
 
-        <section class="mainSection" >
-            <article class="mainArticle visible" id="">
-            <?php
-                //include('all_article.alg.php');
+        <section class="mainSection">
+            <article class="mainArticle visible" id="articleBreak">
+                <div id="table-container">
+                    <h2>All articles</h2>
+                        <?php
 
-                //all();
+                            include 'all_articles.alg.php';
 
-            
-            require 'panel.connect.php';
-
-
-            $conn = @new mysqli($host, $db_user, $db_password, $db_name);
-            error_reporting(E_ALL);
-            ini_set('display_errors', 1);
-
-            // Sprawdzanie błędów połączenia
-            if ($conn->connect_errno) {
-                echo "Error: " . $conn->connect_error;
-                return; // Dodano return, aby zakończyć funkcję w przypadku błędu
-            } else {
-
-                // Wykonanie zapytania
-                $sql = "SELECT title FROM articles";
-                //$sql ="SELECT title FROM articles;";
-                $result = $conn->query($sql); 
-                
-            
-
-                // Sprawdzenie czy są wyniki
-                if ($result->num_rows > 0) {
-                    $i=1;
-                    // Pętla po wynikach
-                    while ($row = $result->fetch_assoc()) {
-                        echo 'Artykuł '. $i . ': '. $row['title'] . "<br>";
-                        $i = $i+1;
-                    }
-                } else {
-                    echo "Brak wyników";
-                }
-
-                $conn->close(); 
-            }
-            ?>
-                
+                            all();
+                        ?>
+                </div>
             </article>
-
-            <!--<article class="mainArticle" id="">
-                Search
-            </article>-->
         </section>
+
     </article>
     <?php
     };
@@ -134,7 +98,7 @@
         <section class="menuBar">
             <a>Service Break</a>
         </section>
-
+        
         <section class="mainSection" >
             <article class="mainArticle visible" id="articleBreak">
                 <div id="form-container">
