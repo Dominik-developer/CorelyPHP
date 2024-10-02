@@ -6,40 +6,48 @@ body {
     margin: 0;
     padding: 0;
 }
+
 header {
     background-color: #333;
     color: #fff;
     padding: 10px;
     text-align: center;
 }
+
 nav {
     background-color: #444;
     padding: 10px;
     text-align: center;
     top: 0;
     position: sticky;
+    z-index: 11;
     
 }
+
 nav a {
     color: #fff;
     text-decoration: none;
     margin: 0 10px;
 }
+
 nav a:hover {
     text-decoration: underline;
 }
 
-
 main {
     padding: 20px;
     min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
 }
 
 section {
     padding: 20px;
     text-align: center;
 }
-
 
 footer {
     height: 70px;
@@ -70,25 +78,15 @@ footer {
 
 /* articles */
 section#all {
-    width: 1050px; 
+    max-width: 1050px;
     min-height: 300px; 
     position: relative; 
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
     margin-top: 30px;
-    
 
-}
-/*
-@media screen {
-    section#all {
-        width: 700px;
-    }
-    
-}
-*/
-
+}   
 
 article.wrapper {
     width: 250px;
@@ -110,6 +108,7 @@ article.wrapper:hover {
     transform: scale(1.1); 
 }
 
+
 /* single article */
 div.articleTitle{
     border-bottom: 1px solid #121212;
@@ -127,5 +126,4 @@ div.articleSummary {
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-
 
