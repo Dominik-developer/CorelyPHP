@@ -5,7 +5,7 @@ session_start();
 
 include_once 'functions.php';
 require_once 'service.alg.php';
-include_once 'articles.alg.php';
+include_once 'single.alg.php';
 include 'connect.php';
 
 service();
@@ -20,6 +20,7 @@ $restored_title = str_replace('_', ' ', $_GET['title']); //optionally use - inst
     <title><?php echo $restored_title; ?></title>
 
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="single.css" />
 
 </head>
 <body>
@@ -38,13 +39,6 @@ $restored_title = str_replace('_', ' ', $_GET['title']); //optionally use - inst
     <main>
         <section class="main">
             <?php
-
-                //echo 'article will be here in future';
-                //echo '<br>';
-                //echo $_GET['title'];
-                //echo $restored_title;
-                //articles($restored_title);
-
                 articles($restored_title);
             ?>
         </section>
