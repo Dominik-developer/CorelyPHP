@@ -2,12 +2,22 @@
 <?php
 session_start();
 
+
+
 if((isset($_SESSION['adminLoged'])) && ($_SESSION['aminLoged'] == true))
 {
     //unset($_SESSION['adminLoged']);
     header('Location: panel.php');
     exit();
+
+    //jesli nie chcemy by zosrtały wykonane następne instrukcje w skrypcie php 
+    //znajdujące sie poniej instrukcji header naley uzyć exit(); 
+    //nastąpi natychmiastowe przekierowanie 
+    // nie kończymy imprzy, wychodzimy po angielsku 
+
 }
+
+
 
 ?>
 <html lang="en">
@@ -24,11 +34,11 @@ if((isset($_SESSION['adminLoged'])) && ($_SESSION['aminLoged'] == true))
 <main>
     <div id="loginBox">
         <div id="loginBoxTitle">
-            <a>Admin login panel</a>
+            <a>ADMIN LOGIN PANEL</a>
             <br>
         </div>
         <div id="loginBoxForm">
-            <form action="panel.login.alg.php" method="POST">
+            <form action="panel_login.alg.php" method="POST">
                 
                 <input type="text" id="login" name="login" placeholder="Login:" required="require">
                 <br>
@@ -48,5 +58,7 @@ if((isset($_SESSION['adminLoged'])) && ($_SESSION['aminLoged'] == true))
     <a>&copy 2024 - <?php echo date("Y"); ?> Admin Panel</a>
 </footer>
     
+<span id="smallScreen"> Screen to small to use admin panel</span>
+
 </body>
 </html>
