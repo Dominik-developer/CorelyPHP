@@ -27,7 +27,7 @@ function all_articles(){
         return;
     } else {
 
-        $sql = "SELECT `ID`, `title`, `text` FROM `articles` ";
+        $sql = "SELECT `ID`, `title`, `text`, photo_path FROM `articles` ";
         $result = $conn->query($sql); 
         
         if ($result->num_rows > 0) {
@@ -46,7 +46,10 @@ function all_articles(){
                                 '. $row['title'] . '<br>
                             </div>
                             <div class="articleSummary">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptatem animi itaque molestias suscipit ad eum. Dolorem non aliquid eveniet!
+                                <td>' . substr($row['text'], 0, 50) . '...<td>
+
+                                <!--<img src="../'.$row['photo_path'].'" alt="photo from article ">-->
+                               
                             </div>
                         </a>
                     </article> <br>';
@@ -65,10 +68,11 @@ function all_articles(){
 
 //footer
 function foot(){
-    ?>
-
-    <a>&copy 2024 - <?php echo date("Y"); ?> Dominik Szczepański <!--project:one®--></a>
-    
+    ?>  
+        <div>
+            <a>&copy 2024 - <?php echo date("Y"); ?> Dominik Szczepański <!--project:one®--></a>
+            <br><br>
+             <a> Contact: www.blog@example.com</a> <!--<a>+00 000 000 000  </a>-->
+        </div>
     <?php
 }
-
