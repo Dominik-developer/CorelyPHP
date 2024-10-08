@@ -99,12 +99,12 @@ include_once 'functions.php';
                             <span class="link">Service break</span>
                         </a>
                     </li>
-                    <!--<li class="list">
+                    <li class="list">
                         <a class="nav-link" id="section#Btn">
                             <i class="bx bx-pie-chart-alt-2 icon"></i>
                             <span class="link">Analytics</span>
                         </a>
-                    </li>-->
+                    </li>
                     <!--<li class="list">
                         <a href="#" class="nav-link" id="section#Btn">
                             <i class="bx bx-folder-open icon"></i>
@@ -138,7 +138,8 @@ include_once 'functions.php';
     <main>
         <section class="section" id="allSection">
             <?php
-                echo '<a>Dashboard</a>';
+
+                dashboard();
             ?>
         </section>
 
@@ -154,18 +155,19 @@ include_once 'functions.php';
             ?>
         </section>
 
-        <section class="section visible" id="section3">
+        <section class="section" id="section3">
             <?php
                 serviceBreak();
             ?>
         </section>
 
         <!--<section class="main" id="section#">
-            <a>analytics</a>
-
+            <?php
+                //echo 'analitics';
+            ?>
         </section>-->
 
-        <section class="section" id="section4">
+        <section class="section visible" id="section4">
             <?php
                 settings();
             ?>
@@ -176,6 +178,19 @@ include_once 'functions.php';
     <section class="overlay"></section>
 
     
+    <?php
+        if (isset($_SESSION['message'])) {
+            echo "
+            <div class='overlayPopout' id='overlay'>
+                <div class='popout'>
+                    <span class='close-btn' id='close-btn'>&times;</span>
+                    <p>{$_SESSION['message']}</p>
+                </div>
+            </div>";
+            unset($_SESSION['message']);
+        }
+    ?>
+
     <!-- ---- JS ---- -->
     <script type="text/javascript" src="index.js"></script>
 
