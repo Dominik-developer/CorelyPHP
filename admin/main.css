@@ -76,6 +76,7 @@
     height: calc(100% - 60px);
     width: 100%;
     /*overflow: hidden;*/
+    /*height: 100%;*/
 }
 
 .mainArticle {
@@ -87,6 +88,7 @@
     border-bottom-right-radius: var(--border_r);
     border-top: 1px solid var(--dark_color);
     box-sizing: border-box;
+    overflow: hidden; 
 }
 
 .mainArticle.visible {
@@ -101,7 +103,7 @@
 /* --- GLOBAL STYLES --- */
 .form-container,
 #form-container {
-    background-color: #f2f2f2;
+    /*background-color: #f2f2f2;*/
     padding: 20px;
     width: 100%;
     height: auto;
@@ -133,22 +135,26 @@ input[type=checkbox] {
 
 button,
 input[type=submit] {
-    background-color: red;
+    /*background-color: red;*/
+    background-color: #4070f4;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    min-width: 80px;
+
 }
 
 button:hover,
 input[type=submit]:hover {
-    background-color: rgb(235,14,14);
+    /*background-color: rgb(235,14,14);*/
+    background-color: #2359ee;
 }
 
 input[type=text],
 input[type=file] {
-    width: 100%;
+    width: 40%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -180,6 +186,11 @@ input[type=file] {
         width: 100%;
         margin-top: 0;
     }
+
+    input[type=text],
+    input[type=file] {
+        width: 100%;
+    }
 }
 
 
@@ -208,4 +219,94 @@ input[type=file] {
 
 .data-table tbody tr:hover {
     background-color: #f1f1f1;
+}
+
+
+/* DASHBOARD */
+
+* {
+    box-sizing: border-box;
+}
+
+#data {
+    display: flex;
+    justify-content: space-between;
+    height: 100%; 
+    overflow: hidden; 
+}
+
+.column {
+    width: 100%;
+}
+
+.columnContent {
+    height: 100%;
+    overflow-y: auto; 
+}
+
+.form-container {
+    height: 100%; 
+}
+
+@media (max-height: 1000px) {
+    .mainArticle {
+        overflow-y: auto;
+        
+    }
+
+    .form-container{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+
+/* message */
+.overlayPopout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Styl dla samego popouta */
+.popout {
+    background-color: #fff;
+    padding: 10px;
+    max-width: 400px;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Styl dla przycisku zamknięcia */
+.popout .close-btn {
+    position: absolute;
+    top: -1px; /* Przesunięcie guzika wyżej */
+    right: 7px; /* Można dostosować */
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Styl dla tekstu wewnątrz popouta */
+.popout p {
+    margin: 0;
+    padding: 10px 0;
+    line-height: 1.5;
+}
+
+/* Ukryj popout na początku */
+.hidden {
+    display: none;
 }

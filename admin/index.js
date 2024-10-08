@@ -57,3 +57,33 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+/*
+document.addEventListener("DOMContentLoaded", function() {
+    const smallMenuBtn = document.querySelectorAll(""),
+
+    smallMenuBtns.forEach(smallMenuBtn => {
+        smallMenuBtn.addEventListener("click", () => {
+            .classList.toggle("visible")
+        })
+    })
+
+})
+
+*/
+
+/*mesage handler*/ 
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Zamknij popout po kliknięciu w X
+    document.getElementById('close-btn')?.addEventListener('click', function() {
+        document.getElementById('overlay').classList.add('hidden');
+    });
+
+    // Zamknij popout po kliknięciu poza nim
+    document.getElementById('overlay')?.addEventListener('click', function(event) {
+        if (event.target.id === 'overlay') {
+            document.getElementById('overlay').classList.add('hidden');
+        }
+    });
+});
