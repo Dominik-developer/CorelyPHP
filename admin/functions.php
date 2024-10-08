@@ -1,15 +1,38 @@
+<?php   
 
-<style>
-    <?php /*include "main.css"; */?>
+session_start();
 
-    /* -- CSS DEBUGGING -- */
-    * {
-        /*border: 1px solid red;*/
-    }
+if(!isset ($_SESSION['adminLoged']))
+{
+    header('Location:panel.login.php');
+    exit();
+}
 
-</style>
+    function dashboard() {
+    ?>
+    <article class="article">
+        <section class="menuBar">
+            <a class="menuBar">Dashboard</a>
+        </section>
 
-<?php
+        <section class="mainSection">
+            <article class="mainArticle visible" id="articleBreak">
+                <div class="form-container" >
+                    <!--<h2>Data</h2>-->
+                        <?php
+
+                            include 'dashboard.alg.php';
+
+                            dasboard_data();
+                            //echo 'dashboard';
+                        ?>
+                </div>
+            </article>
+        </section>
+    </article>
+    <?php
+    };
+
 
     function addArticle() {
     ?>
@@ -68,14 +91,13 @@
     ?>
     <article class="article">
         <section class="menuBar">
-            <a class="menuBarLink">All Articles</a>
+            <a class="menuBar">All Articles</a>
             <!--<a class="menuBarLink">Search</a>-->
-
         </section>
 
         <section class="mainSection">
             <article class="mainArticle visible" id="articleBreak">
-                <div id="table-container">
+                <div class="<!--form-container-->" id="table-container">
                     <h2>All articles</h2>
                         <?php
 
@@ -86,7 +108,6 @@
                 </div>
             </article>
         </section>
-
     </article>
     <?php
     };
@@ -124,56 +145,35 @@
 
     function settings() {
     ?>
-    <article class="article ">
-        <!--<section class="settings bar"></section>-->
+    <article class="article">
         <section class="menuBar">
-            <a class="menuBarLink">General settings</a>
-            <a class="menuBarLink">Password</a>
-            <!--<a class="menuBarLink">Theme</a>
-            <a class="menuBarLink">Link 4</a>-->
-
+            <a class="menuBar">Password</a>
+            <!--<a class="menuBarLink">Password</a>-->
         </section>
 
         <section class="mainSection" id="mainSettings">
             <article class="mainArticle visible">
 
-                <a>Ustawienia</a>
-                <!--<section class="mainArticleSection">
-                    <header class="mainArticleHeader">
-                        <a>Ustawienia 1</a>
-                    </header>
-                    <div class="mainArticleDiv">
-                        Ustawienia 11
-                    </div>
-                </section>
+                <h2>Change Password</h2>
+                
+                <form action="password.alg.php" method="POST">
+                    
+                    <!--<input type="text"  name="loginCheck" placeholder="Your Login:">
+                    <br>-->
+                    <input type="text"  name="oldPass" placeholder="Old Password:" >
+                    <br>
+                    <input type="text"  name="newPass" placeholder="New Password:" >
+                    <br>
+                    <input type="text"  name="newPassAgain" placeholder="Repeat New Password:" >
+                    <br>
+                    <input type="checkbox" id="visibility-checkbox" name="passwordChange" required="required">
+                    <label for="passwordChange-checkbox">I confirm the change of password</label>
+                    <br>
+                    <input type="submit" value="send">
+                    <br><br>
+                    </form>
 
-                <section class="mainArticleSection">
-                    <header class="mainArticleHeader">
-                        <a>Ustawienia 2</a>
-                    </header>
-                    <div class="mainArticleDiv">
-                        Ustawienia 22
-                    </div>
-                </section>
             </article>
-
-            <article class="mainArticle" id="article2">
-                <section class="mainArticleSection">
-                    <header class="mainArticleHeader">
-                        <a>Change your password</a>
-                    </header>
-                    <div class="mainArticleDiv">
-                        Pass 1
-                    </div>
-                    <div class="mainArticleDiv">
-                        Pass 2
-                    </div>-->
-                </section>
-            </article>
-
-            <!--<article class="mainArticle" id="article3"></article>
-            <article class="mainArticle" id="article4"></article>-->
-
         </section>            
     </article>     
     <?php
