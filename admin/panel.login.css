@@ -81,9 +81,6 @@ footer{
    
 }
 
-#logErr{
-    font-size: large;
-}
 
 #smallScreen{
     display: none;
@@ -123,6 +120,7 @@ footer{
         background-color:unset;
         max-width: 300px;
         width: 100%;
+        border: unset;
     }
 
     #loginBoxForm {
@@ -151,7 +149,7 @@ footer{
     }
 }
 
-@media (max-width: 230px) OR (max-height: 460px){
+@media (max-width: 260px) OR (max-height: 460px){
     main{
         display: none;
     }
