@@ -221,6 +221,12 @@ input[type=file] {
     background-color: #f1f1f1;
 }
 
+#table-container-inner{
+    overflow-x: scroll;
+    white-space: nowrap; /* To ensure the content stays on one line for scrolling */
+    width: 100%; /* możesz dostosować */
+    max-width: 2000px; 
+}
 
 /* DASHBOARD */
 

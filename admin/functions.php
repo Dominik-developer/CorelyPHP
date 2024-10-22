@@ -16,15 +16,14 @@ if(!isset ($_SESSION['adminLoged']))
         </section>
 
         <section class="mainSection">
-            <article class="mainArticle visible" id="articleBreak">
+            <article class="mainArticle visible" id="articleDashboard">
                 <div class="form-container" >
-                    <!--<h2>Data</h2>-->
+                    <h2></h2>
                         <?php
 
-                            include 'dashboard.alg.php';
-
-                            dasboard_data();
-                            //echo 'dashboard';
+                        include 'dashboard.alg.php';
+                            
+                        dasboard_data();
                         ?>
                 </div>
             </article>
@@ -42,10 +41,10 @@ if(!isset ($_SESSION['adminLoged']))
         </section>
 
         <section class="mainSection">
-            <article class="mainArticle visible">
+            <article class="mainArticle visible" id="articleAdd">
                 <div class="form-container">
                     <h2>New article</h2>
-                    <form action="all.test.php" method="POST" enctype="multipart/form-data">
+                    <form action="new.alg.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-25">
                                 <label for="title">Article title</label>
@@ -96,15 +95,17 @@ if(!isset ($_SESSION['adminLoged']))
         </section>
 
         <section class="mainSection">
-            <article class="mainArticle visible" id="articleBreak">
-                <div class="<!--form-container-->" id="table-container">
+            <article class="mainArticle visible" id="articleAll">
+                <div class="form-container" id="table-container">
                     <h2>All articles</h2>
-                        <?php
+                        <div id="table-container-inner">
+                            <?php
 
                             include 'all_articles.alg.php';
 
                             all();
-                        ?>
+                            ?>
+                        </div>
                 </div>
             </article>
         </section>
@@ -151,28 +152,33 @@ if(!isset ($_SESSION['adminLoged']))
             <!--<a class="menuBarLink">Password</a>-->
         </section>
 
-        <section class="mainSection" id="mainSettings">
-            <article class="mainArticle visible">
-
-                <h2>Change Password</h2>
-                
-                <form action="password.alg.php" method="POST">
-                    
-                    <!--<input type="text"  name="loginCheck" placeholder="Your Login:">
-                    <br>-->
-                    <input type="text"  name="oldPass" placeholder="Old Password:" >
-                    <br>
-                    <input type="text"  name="newPass" placeholder="New Password:" >
-                    <br>
-                    <input type="text"  name="newPassAgain" placeholder="Repeat New Password:" >
-                    <br>
-                    <input type="checkbox" id="visibility-checkbox" name="passwordChange" required="required">
-                    <label for="passwordChange-checkbox">I confirm the change of password</label>
-                    <br>
-                    <input type="submit" value="send">
-                    <br><br>
+        <section class="mainSection" >
+            <article class="mainArticle visible" id="articleBreak">
+                <div id="form-container">
+                    <h2>Change Password</h2>
+                    <form action="password.alg.php" method="POST">
+                        <div class="row">
+                            <input type="text" name="oldPass" placeholder="Old Password:" required="required">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <input type="text" name="newPass" placeholder="New Password:" required="required">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <input type="text" name="newPassAgain" placeholder="Repeat New Password:" required="required">
+                        </div>
+                        <br>
+                        <div class="row align-checkbox">
+                            <input type="checkbox" id="passwordChange-checkbox" name="passwordChange" required="required">
+                            <label for="passwordChange-checkbox">I confirm the change of password</label>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <button type="submit" name="send">Submit</button>
+                        </div>
                     </form>
-
+                </div>
             </article>
         </section>            
     </article>     
