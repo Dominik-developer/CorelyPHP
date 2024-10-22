@@ -1,4 +1,3 @@
-
 <?php
 
     $host = "localhost";
@@ -7,5 +6,6 @@
     $db_name = "blog";
 
     
+
 
 

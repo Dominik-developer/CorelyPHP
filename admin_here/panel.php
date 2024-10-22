@@ -51,28 +51,6 @@ include_once 'functions.php';
     <!-----==== Boxicons CSS ==== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-----==== noscript = CSS = JS ==== -->
-    <noscript>
-            <p class="noscript">JavaScript is disabled in your browser. Please enable JavaScript to use all the features of this site.
-            <br><a href="panel.logout.alg.php">Log out</a></p>
-
-        <style>
-            nav,main{
-                display: none;
-            }
-
-            body{
-                background-color: #fff;
-            }
-
-            p.noscript {
-                font-size: large;
-                text-align: center;
-                margin-top: 20%;
-                color: red;
-            }
-        </style>
-    </noscript>
 </head>
 
 <body>
@@ -121,12 +99,12 @@ include_once 'functions.php';
                             <span class="link">Service break</span>
                         </a>
                     </li>
-                    <!--<li class="list">
+                    <li class="list">
                         <a class="nav-link" id="section#Btn">
                             <i class="bx bx-pie-chart-alt-2 icon"></i>
                             <span class="link">Analytics</span>
                         </a>
-                    </li>-->
+                    </li>
                     <!--<li class="list">
                         <a href="#" class="nav-link" id="section#Btn">
                             <i class="bx bx-folder-open icon"></i>
@@ -158,7 +136,7 @@ include_once 'functions.php';
     </nav>
 
     <main>
-        <section class="section visible" id="allSection">
+        <section class="section" id="allSection">
             <?php
 
                 dashboard();
@@ -189,7 +167,7 @@ include_once 'functions.php';
             ?>
         </section>-->
 
-        <section class="section" id="section4">
+        <section class="section visible" id="section4">
             <?php
                 settings();
             ?>
@@ -199,8 +177,8 @@ include_once 'functions.php';
 
     <section class="overlay"></section>
 
+    
     <?php
-    /* ---- POPOUT ---- */
         if (isset($_SESSION['message'])) {
             echo "
             <div class='overlayPopout' id='overlay'>

@@ -18,10 +18,8 @@ if (isset($_POST['toggle'])) {
     $setting_id = $_POST['setting_id'];
 
     if ($conn->connect_errno!=0) {
-        $_SESSION['message'] = 'connection do db fail';
-        #echo "Error: ".$conn->connect_error;
-        header('Location: panel.php');
-        exit();
+
+        echo "Error: ".$conn->connect_error;
     }else{
 
         $sql = "SELECT `service_status` FROM `service` WHERE id=1 ";
@@ -44,26 +42,33 @@ if (isset($_POST['toggle'])) {
 
                 if ($conn->query($sql_update) === TRUE) {
 
-                    $_SESSION['message'] = 'Service status value changed successfully';
-                    header('Location: panel.php');
+                    echo ("Service status value changed successfully.");
+                    header("Location: panel.php");
                 }else{
-                    $_SESSION['message'] = 'Error: something went wrong during updating status';
-                    #echo $conn->error;
-                    header('Location: panel.php');
+
+                    echo ("Error: something went wrong during updating status."). $conn->error;
                 }
 
             }else{
-                $_SESSION['message'] = 'more rows found than needed';
-                header('Location: panel.php');
+
+                echo 'last error';
+                echo('Location: error.html'); //header: ; in future
+                exit();
             }
         }
         $conn->close();
-        exit();
     }
 }else{
-    $_SESSION['message'] = 'something went wrong, try again';
-    header('Location: panel.php');
+
+    echo('something went wrong, try again');
+    echo('Location: error.html');
     exit();
 }
+
+exit();
+
+
+
+
 
 

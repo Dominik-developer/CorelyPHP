@@ -48,7 +48,7 @@ if (isset($_POST['oldPass']) && isset($_POST['newPass']) && isset($_POST['newPas
                         if ($conn->query($sql_update) === TRUE) {
     
                             $_SESSION['message'] = 'Password changed successfully.';
-                            header('Location: panel.php');
+                            header("Location: panel.php");
                         } else {
                             $_SESSION['message'] = 'Error: something went wrong during updating password';
                             #echo $conn->error;

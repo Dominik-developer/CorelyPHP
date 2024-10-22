@@ -1,0 +1,146 @@
+/* basics */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #121212;
+}
+
+header {
+    background-color: #f0f0f0; /* jasne tło dla trybu jasnego */
+    color: #121212;
+    padding: 10px;
+    text-align: center;
+    position: relative; /* Zwrócone do poprzedniego */
+}
+
+nav {
+    background-color: #e6e6e6; /* jasne tło dla trybu jasnego */
+    padding: 10px;
+    text-align: center;
+    top: 0;
+    position: sticky; /* Zwrócone sticky na nawigacji */
+    z-index: 11;
+}
+
+nav a {
+    color: #6A1B9A; /* Fioletowy kolor linków */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    color: #03DAC6; /* Miętowy kolor na hover */
+}
+
+main {
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* jasne tło dla trybu jasnego */
+    color: #121212;
+}
+
+/* articles */
+section#all {
+    max-width: 1050px;
+    min-height: 300px; 
+    position: relative; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    margin-top: 30px;
+}
+
+article.wrapper {
+    width: 250px;
+    height: 300px;
+    margin: 10px; 
+    border: 1px solid #E0E0E0;
+    position: relative; 
+    background-size: cover; 
+    background-position: center; 
+    transition: transform 0.3s ease, z-index 0s; 
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+article.wrapper:hover {
+    z-index: 10; 
+    transform: scale(1.1); 
+}
+
+div.articleTitle {
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #6A1B9A; /* Fioletowy */
+    color: #fff;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+div.articleSummary {
+    padding: 5px;
+    min-height: 80%;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #E0E0E0;
+    }
+
+    header, footer {
+        background-color: #1F1B24;
+        color: #fff;
+    }
+
+    nav {
+        background-color: #333;
+    }
+
+    nav a {
+        color: #BB86FC; /* Fioletowy kolor dla trybu ciemnego */
+    }
+
+    nav a:hover {
+        color: #03DAC6; /* Miętowy kolor na hover */
+    }
+
+    article.wrapper {
+        background-color: #333;
+        color: #E0E0E0;
+        border: 1px solid #444;
+    }
+
+    div.articleTitle {
+        background-color: #BB86FC; /* Fioletowy dla trybu ciemnego */
+        color: #121212;
+    }
+}
+
