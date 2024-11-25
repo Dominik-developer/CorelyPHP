@@ -1,73 +1,54 @@
 <?php
 
 
-function articles($restored_title){
 
+function articles($restored_title) {
     require 'connect.php';
 
-
-    $conn = @new mysqli($host, $db_user, $db_password, $db_name);
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    $conn = new mysqli($host, $db_user, $db_password, $db_name);
 
     if ($conn->connect_errno) {
-        echo "Error: " . $conn->connect_error;
+        header("HTTP/1.1 500 Internal Server Error");
+        header("Location: error_404.php");
         return;
-    } else {
-
-        $query = $restored_title;
-
-        //echo $query;
-
-        $conn = @new mysqli($host, $db_user, $db_password, $db_name);
-
-        $sql = "SELECT * FROM `articles` WHERE title = '$query'";
-        //echo $sql;  
-
-        if ($result = @$conn->query($sql)) {
-
-            $num = $result->num_rows;
-
-            if($num = 1)
-            {
-
-                $row = $result->fetch_assoc();
-
-                //echo '<br>'.$row['title'].'<br>'.$row['text'].'<br>'.$row['photo_path'].'<br>';
-
-                echo'
-                    <article> 
-                        <header>
-                            <a>'.$row['title'].'</a>
-                        </header>
-                        
-                        <div id="photo">
-                            <img src="../'.$row['photo_path'].'" alt="photo from article ">
-                        </div>
-
-                        <p>
-                            '.$row['text'].'
-                        <p>
-
-                        <footer>
-                            Data publikacji: '.$row['date_of_publish'].'
-                        </footer>
-
-                    </article>';
-
-                    // '.$row[''].'
-
-            } else {
-            
-                echo 'last error ';
-                echo('Location: error.html');
-
-            }
-            
-        } else {
-            echo 'Error in SQL query';
-        }
-
-        $conn->close(); 
     }
+
+    // prepared statement
+    //$stmt = $conn->prepare("SELECT * FROM `articles` WHERE title = ?");
+    $stmt = $conn->prepare("SELECT title, photo_path, text, date_of_publish FROM `articles` WHERE title = ?");
+    $stmt->bind_param("s", $restored_title);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+
+        echo '
+            <article> 
+                <header id="title">
+                    <a>' . htmlspecialchars($row['title']) . '</a>
+                </header>
+                
+                <div id="photo">
+                    <img src="../' . htmlspecialchars($row['photo_path']) . '" alt="photo from article">
+                </div>
+
+                <p>
+                    ' . htmlspecialchars($row['text']) . '
+                <p>
+
+                <footer id="date_of_pub">
+                    <p>
+                        Date of publish: ' . htmlspecialchars($row['date_of_publish']) . '
+                    </p>
+                </footer>
+            </article>';
+    } else {
+        header("HTTP/1.1 404 Not Found");
+        header("Location: error_404.php");
+        exit();
+    }
+
+    $stmt->close();
+    $conn->close();
 }

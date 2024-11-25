@@ -23,7 +23,8 @@ function all_articles(){
     ini_set('display_errors', 1);
 
     if ($conn->connect_errno) {
-        echo "Error: " . $conn->connect_error;
+        //echo "Error: " . $conn->connect_error;
+        echo 'error';
         return;
     } else {
 
@@ -58,7 +59,7 @@ function all_articles(){
 
             }
         } else {
-            echo "Brak wyników";
+            echo "0 results";
         }
 
         $conn->close(); 
@@ -70,7 +71,7 @@ function all_articles(){
 function foot(){
     ?>  
         <div>
-            <a>&copy 2024 - <?php echo date("Y"); ?> Dominik Szczepański <!--project:one®--></a>
+            <a>&copy 2024 - <?php echo date("Y"); ?> Dominik-developer <!--project:one®--></a>
             <br><br>
              <a> Contact: www.blog@example.com</a> <!--<a>+00 000 000 000  </a>-->
         </div>
