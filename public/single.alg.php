@@ -8,12 +8,14 @@ function articles($restored_title) {
     $conn = new mysqli($host, $db_user, $db_password, $db_name);
 
     if ($conn->connect_errno) {
-        echo 'Error';
+        header("HTTP/1.1 500 Internal Server Error");
+        header("Location: error_404.php");
         return;
     }
 
     // prepared statement
-    $stmt = $conn->prepare("SELECT * FROM `articles` WHERE title = ?");
+    //$stmt = $conn->prepare("SELECT * FROM `articles` WHERE title = ?");
+    $stmt = $conn->prepare("SELECT title, photo_path, text, date_of_publish FROM `articles` WHERE title = ?");
     $stmt->bind_param("s", $restored_title);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -42,7 +44,7 @@ function articles($restored_title) {
                 </footer>
             </article>';
     } else {
-
+        header("HTTP/1.1 404 Not Found");
         header("Location: error_404.php");
         exit();
     }

@@ -10,21 +10,20 @@ include 'connect.php';
 
 service();
 
-if (!isset($_GET['title']) || empty(trim($_GET['title']))) {
+if (!isset($_GET['title']) || empty(trim($_GET['title'])) || !preg_match('/^[a-zA-Z0-9 _-]{1,50}$/', $_GET['title'])) {
+    header("HTTP/1.1 404 Not Found");
     header("Location: error_404.php");
     exit();
 }
 
 $restored_title = str_replace('_', ' ', filter_var($_GET['title'], FILTER_SANITIZE_SPECIAL_CHARS)); //optionally use - insted of _
 
-//$restored_title = str_replace('_', ' ', $_GET['title']); //optionally use - insted of _
-
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($restored_title); ?></title> <!-- Zapobiegamy XSS -->
+    <title><?php echo htmlspecialchars($restored_title); ?></title> <!-- XSS prevention -->
 
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="single.css" />
@@ -40,7 +39,7 @@ $restored_title = str_replace('_', ' ', filter_var($_GET['title'], FILTER_SANITI
     <nav>
         <a href="main.php">Home Page</a>
         /
-        <a class="current"><?php echo $restored_title; ?></a>
+        <a class="current"><?php echo htmlspecialchars($restored_title); ?></a>
     </nav>
 
     <main>
