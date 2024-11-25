@@ -7,5 +7,3 @@
     $db_name = "blog";
 
     
-
-

@@ -11,8 +11,9 @@ function service()
 
     if ($conn->connect_errno!=0)
     {
-        echo "Error: ".$conn->connect_error;
-        //header('Location: error.html');
+        //echo "Error: ".$conn->connect_error;
+        echo 'Error';
+        header('Location: error.html');
     }
     else
     {
@@ -34,7 +35,7 @@ function service()
 
                 if(!$_SESSION['service_status'] == 0)
                 {
-                    //echo 'servis';
+                    echo 'servis';
                     //unset($_SESSION['status']);
                     header('Location: service.html');
                 }

@@ -5,26 +5,16 @@ session_start();
 
 include_once 'functions.php';
 require_once 'service.alg.php';
-include_once 'single.alg.php';
 include 'connect.php';
 
 service();
-
-if (!isset($_GET['title']) || empty(trim($_GET['title']))) {
-    header("Location: error_404.php");
-    exit();
-}
-
-$restored_title = str_replace('_', ' ', filter_var($_GET['title'], FILTER_SANITIZE_SPECIAL_CHARS)); //optionally use - insted of _
-
-//$restored_title = str_replace('_', ' ', $_GET['title']); //optionally use - insted of _
 
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($restored_title); ?></title> <!-- Zapobiegamy XSS -->
+    <title>404 error </title>
 
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="single.css" />
@@ -39,15 +29,19 @@ $restored_title = str_replace('_', ' ', filter_var($_GET['title'], FILTER_SANITI
 
     <nav>
         <a href="main.php">Home Page</a>
-        /
-        <a class="current"><?php echo $restored_title; ?></a>
+        / 
+        <a class="current">404 Page</a>
     </nav>
 
     <main>
         <section class="main">
-            <?php
-                articles($restored_title);
-            ?>
+
+            <h1 style="font-size: 60px;">4 0 4</h1>
+            
+            <h2>Page not found</h2> 
+
+            Get back to home page: <a href="main.php">Home page </a>
+                
         </section>
 
         <section id="white-space"></section>
