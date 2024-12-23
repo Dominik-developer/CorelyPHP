@@ -13,6 +13,7 @@ For this moment it is pre release version.
 | Version | Supported          |
 | ------- | ------------------ |
 | pre release   | :white_check_mark: |
+| V0.1.0-beta   | :white_check_mark: |
 <!--| 5.0.x   | :x:                |
 | 4.0.x   | :white_check_mark: |
 | < 4.0   | :x:                |-->
