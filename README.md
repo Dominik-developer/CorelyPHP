@@ -19,7 +19,7 @@ I am still working to make sure this project is 100% secure,, responisve, functi
 
 Senior Dev probably will tell that few things could be build differnt or better, probably but all things I learned druring building this project will implemented in next one, plus I upgreade codebase all the time when I find easier or better way to write sometinng but I am limited by time.  
 
-## Current version: pre
+## Current version: v1.0.0
 
 This version number means which version should be used. Release version sometimes may just have small patches that are not worth rebuilding to new V. But make sure you read what is changing so you know what is going on.
 
