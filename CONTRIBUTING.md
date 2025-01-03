@@ -12,7 +12,7 @@ First off, thank you for considering contributing to [PHP_CMS_for_blog](https://
      - Expected vs. actual behavior.
      - Screenshots or logs (if applicable/possible).
      - Environment details (e.g., OS, browser).
-3. **Remeber to follow** [Style Guides](https://github.com/Dominik-developer/PHP_CMS_for_blog/STYLE-GUIDES.md) for this softwere. 
+3. **Remeber to follow** [Style Guides](https://github.com/Dominik-developer/PHP_CMS_for_blog/blob/main/STYLE_GUIDES.md) for this softwere. 
 
 ## How to Suggest a Feature
 1. **Search existing suggestions:** Ensure your idea isn’t already suggested in [existing issues](https://github.com/Dominik-developer/PHP_CMS_for_blog/issues).
@@ -22,7 +22,7 @@ First off, thank you for considering contributing to [PHP_CMS_for_blog](https://
      - Explain why the feature is needed and what problem it solves.
      - Describe how the feature might work or look.
      - Potential implementation ideas.
-3. **Remeber to follow** [Style Guides](https://github.com/Dominik-developer/PHP_CMS_for_blog/STYLE-GUIDES.md) for this softwere. 
+3. **Remeber to follow** [Style Guides](https://github.com/Dominik-developer/PHP_CMS_for_blog/blob/main/STYLE_GUIDES.md) for this softwere. 
 
 <!--
 ## How to Submit a Pull Request
