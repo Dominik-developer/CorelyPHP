@@ -1,7 +1,10 @@
-# Style Guides for [Project Name]
+# Style Guides for PHP CMS for blog
 
-This document outlines the coding and formatting standards to be followed when contributing to [Project Name].
+This document outlines the coding and formatting standards to be followed when contributing to [PHP_CMS_for_blog](https://github.com/Dominik-developer/PHP_CMS_for_blog).
 
+This guideline is still in development and probaby will take a while before it will appears here because project is private now on GitHub. 
+
+<!--
 ## Table of Contents
 
 - [General Guidelines](#general-guidelines)
@@ -43,3 +46,4 @@ This document outlines the coding and formatting standards to be followed when c
 
   // Bad
   if (condition) doSomething();
+-->
