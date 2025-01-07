@@ -2,7 +2,7 @@
 
 ‼️ Secruity sugestions should be treated as invalid not as vulnerability.
 
-## Secruity Policy 
+## Secruity Policy
 
 * Latest Releases: The newest release, currently version v1.0.0, is the only version receiving active security updates. We strongly recommend using the latest version whenever possible.
 
@@ -18,7 +18,6 @@
 
 <!--Use this section to tell people about which versions of your project are
 currently being supported with security updates.-->
-
 
 * All safe and supported versions of our software are marked with a ✅. <!-- It is highly recommended to use only these versions, as they contain the latest security fixes and improvements. Older, unsupported versions should be avoided, as they may contain vulnerabilities that will not be addressed retroactively.-->
 * New versions that do not introduce changes in terms of security do not affect the lack of support for previous versions.

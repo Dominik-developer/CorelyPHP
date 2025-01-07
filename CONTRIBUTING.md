@@ -1,10 +1,11 @@
 # Contributing to PHP_CMS_for_blog
 
 First off, thank you for considering contributing to [PHP_CMS_for_blog](https://github.com/Dominik-developer/PHP_CMS_for_blog)! 🎉 Your help is greatly appreciated.
-    
+
 ## If you've found a bug, please create an issue following these steps:
+
 1. **Check for duplicates:** Search [existing issues](https://github.com/Dominik-developer/PHP_CMS_for_blog/issues) to ensure it hasn’t been reported.
-2. **If it’s a new issue:** 
+2. **If it’s a new issue:**
    - Open a new issue.
      - Provide a detailed description of the bug.
      - The version of the project you’re using.
@@ -12,9 +13,10 @@ First off, thank you for considering contributing to [PHP_CMS_for_blog](https://
      - Expected vs. actual behavior.
      - Screenshots or logs (if applicable/possible).
      - Environment details (e.g., OS, browser).
-3. **Remeber to follow** [Style Guides](https://github.com/Dominik-developer/PHP_CMS_for_blog/blob/main/STYLE_GUIDES.md) for this softwere. 
+3. **Remeber to follow** [Style Guides](https://github.com/Dominik-developer/PHP_CMS_for_blog/blob/main/STYLE_GUIDES.md) for this softwere.
 
 ## How to Suggest a Feature
+
 1. **Search existing suggestions:** Ensure your idea isn’t already suggested in [existing issues](https://github.com/Dominik-developer/PHP_CMS_for_blog/issues).
 2. **If it’s a new idea:**
    - Open a new issue.
@@ -22,7 +24,7 @@ First off, thank you for considering contributing to [PHP_CMS_for_blog](https://
      - Explain why the feature is needed and what problem it solves.
      - Describe how the feature might work or look.
      - Potential implementation ideas.
-3. **Remeber to follow** [Style Guides](https://github.com/Dominik-developer/PHP_CMS_for_blog/blob/main/STYLE_GUIDES.md) for this softwere. 
+3. **Remeber to follow** [Style Guides](https://github.com/Dominik-developer/PHP_CMS_for_blog/blob/main/STYLE_GUIDES.md) for this softwere.
 
 <!--
 ## How to Submit a Pull Request
@@ -33,17 +35,10 @@ First off, thank you for considering contributing to [PHP_CMS_for_blog](https://
 -->
 
 ## Code of Conduct
+
 Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand the expectations for participation in this project.
 
-
-
-
-
-
-
-
 <!-- NEW VERSION IN PROGRESS
-
 
 ## Table of Contents
 

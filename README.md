@@ -15,7 +15,7 @@ This way of deviding files allows to not damage backend files while rebuilding f
 The only concern is implemetation of PHP functions and HTML code that is deliverd by functions.
 But this may be easly fixed specialy that when rebuilding frontend you will want other data so queries may need some improvment or rebuild.
 
-I am still working to make sure this project is 100% secure,, responisve, functional, elegant and the possibly the best I can make it.
+I am still working to make sure this project is 100% secure, responisve, functional, elegant and the possibly the best I can make it.
 
 Senior Dev probably will tell that few things could be build differnt or better, probably but all things I learned druring building this project will implemented in next one, plus I upgreade codebase all the time when I find easier or better way to write sometinng but I am limited by time.  
 
