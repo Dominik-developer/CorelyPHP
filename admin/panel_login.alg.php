@@ -34,7 +34,7 @@ else
         if($num_adm >0)
         {
 
-            $_SESSION['adminLoged'] = true; //zalogowany = true
+            $_SESSION['adminLoged'] = true; 
             
             $row = $result->fetch_assoc();
             
@@ -47,10 +47,10 @@ else
             $result->free_result(); 
             
             header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-            header('Cache-Control: post-check=0, pre-check=0', false); // Dla zgodności z HTTP/1.0
-            header('Pragma: no-cache'); // Dla zgodności z HTTP/1.0
+            header('Cache-Control: post-check=0, pre-check=0', false); // For HTTP/1.0 compatibility
+            header('Pragma: no-cache'); // For HTTP/1.0 compatibility
 
-            // Ustawienie nagłówka Expires, aby upewnić się, że strona jest uznawana za przeterminowaną
+            //Set the Expires header to ensure that the page is considered expired
             header('Expires: Wed, 11 Jan 1984 05:00:00 GMT');
 
             header('Location: panel.php');
@@ -63,6 +63,14 @@ else
     }
 
     $conn->close();
+}
+
+
+// added for dev
+$dev = false;
+if($dev == true){
+    $_SESSION['adminLoged'] = true;
+header('Location: panel.php');
 }
 
 

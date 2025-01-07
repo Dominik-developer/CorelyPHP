@@ -3,25 +3,26 @@
 <?php
 
 session_start();
- 
+
+
 if(!isset ($_SESSION['adminLoged']))
 {
-    header('Location:panel.login.php');
+    header('Location: panel.login.php');
     exit();
 }
 
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
-    // Sesja wygasła - usuń dane sesji
-    session_unset();     // Usuń wszystkie zmienne sesji
-    session_destroy();   // Zniszcz sesję
+    // Session expired - delete session data
+    session_unset();     // Delete all session variables
+    session_destroy();   // Destroy session
 }
-$_SESSION['LAST_ACTIVITY'] = time(); // Aktualizacja czasu ostatniej aktywności
+$_SESSION['LAST_ACTIVITY'] = time(); // Last Activity Time Update
 
 
 //additional files
 require_once 'panel.connect.php';
-include_once 'functions.php';
+include 'window_functions.php';
 
 ?>
 
@@ -45,8 +46,8 @@ include_once 'functions.php';
     <meta name="referrer" content="no-referrer">
 
     <!-----====== CSS ====== -->
-    <link rel="stylesheet" type="text/css" href="panel.css">
-    <link rel="stylesheet" type="text/css" href="main.css" >
+    <link rel="stylesheet" type="text/css" href="./CSS/panel.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/window.css" >
 
     <!-----==== Boxicons CSS ==== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -76,11 +77,10 @@ include_once 'functions.php';
 </head>
 
 <body>
-
     <nav>
         <div class="logo">
-            <i class="bx bx-menu menu-icon"></i>
-            <span class="logo-name">Admin Panel #<?php echo $_SESSION['id']; ?></span>
+            <i class="bx bx-menu menu-icon topbar"></i>
+            <span class="logo-name topbar">Admin Panel #<?php echo $_SESSION['id']; ?></span>
         </div>
 
         <div class="sidebar">
@@ -91,44 +91,51 @@ include_once 'functions.php';
 
             <div class="sidebar-content">
                 <ul class="lists">
-                    <li class="list" id="allBtn">
-                        <a class="nav-link">
+                    <li class="list">
+                        <a class="nav-link" href="?window=dashboard">
                             <i class="bx bx-home-alt icon"></i>
                             <span class="link">Dashboard</span>
                         </a>
                     </li>
-                    <!--<li class="list" id="section1Btn">
-                        <a href="#" class="nav-link">
-                            <i class="bx bx-bar-chart-alt-2 icon"></i>
+                    <!--<li class="list">
+                        <a class="nav-link" href="?window=revenue">
+                            <i class="bx bx-money icon"></i>
                             <span class="link">Revenue</span>
                         </a>
                     </li>-->
                     <li class="list">
-                        <a class="nav-link" id="section1Btn">
+                        <a class="nav-link"  href="?window=all-articles">
                             <i class="bx bxs-grid icon"></i>
                             <span class="link">All articles</span>
                         </a>
                     </li>
                     <li class="list">
-                        <a class="nav-link" id="section2Btn">
+                        <a class="nav-link" href="?window=add-article">
                             <i class="bx bx-plus-circle icon"></i>
                             <span class="link">Add article</span>
                         </a>
                     </li>
                     <li class="list">
-                        <a class="nav-link" id="section3Btn">
+                        <a class="nav-link" href="?window=edit-article&id=0">
+                            <i class="bx bx-edit-alt icon"></i>
+                            <span class="link">Edit article</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a class="nav-link" href="?window=service-break">
                             <i class="bx bx-hard-hat icon"></i>
                             <span class="link">Service break</span>
                         </a>
                     </li>
                     <!--<li class="list">
-                        <a class="nav-link" id="section#Btn">
+                        <a class="nav-link" href="?window=analytics">
                             <i class="bx bx-pie-chart-alt-2 icon"></i>
+                            <i class="bx bxs-analyse icon" ></i>
                             <span class="link">Analytics</span>
                         </a>
                     </li>-->
                     <!--<li class="list">
-                        <a href="#" class="nav-link" id="section#Btn">
+                        <a class="nav-link" href="?window=files">
                             <i class="bx bx-folder-open icon"></i>
                             <span class="link">Files</span>
                         </a>
@@ -139,7 +146,7 @@ include_once 'functions.php';
                 <div class="bottom-content">
                     <ul>
                         <li class="list">
-                            <a class="nav-link" id="section4Btn">
+                            <a class="nav-link" id="section4Btn" href="?window=settings">
                                 <i class="bx bx-cog icon"></i>
                                 <span class="link">Settings</span>
                             </a>
@@ -151,50 +158,52 @@ include_once 'functions.php';
                             </a>
                         </li>
                     </ul>
-                    <!--<a class="list";>&copy 2024 - <?php echo date("Y"); ?> Admin Panel</a>-->
+                    <a class="list";>&copy 2024 - <?php echo date("Y"); ?> Admin Panel</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <main>
-        <section class="section visible" id="allSection">
-            <?php
+        <?php
 
-                dashboard();
-            ?>
-        </section>
+        $windows = ["dashboard", /*"revenue",*/ "all-article", "add-article", "edit-article", "service-break", /*"analytics", "files",*/ "settings"];
+        $currentWindow = isset($_GET["window"]) ? $_GET["window"]: "dashboard";
 
-        <section class="section" id="section1">
-            <?php
+        if($_GET["window"] == "dashboard" || !isset($_GET["window"]) ){
+            
+            dashboard();
+
+        }else{ // if new widows added, there must be added new if statements added as well
+
+            if($_GET["window"] == "all-articles"){
+
                 allArticles();
-            ?>
-        </section>
 
-        <section class="section" id="section2">
-            <?php
+            }elseif($_GET["window"] == "add-article"){
+
                 addArticle();
-            ?>
-        </section>
+                
 
-        <section class="section" id="section3">
-            <?php
+            }elseif($_GET["window"] == "edit-article"){
+
+                editArticle();
+
+            }elseif($_GET["window"] == "service-break"){
+
                 serviceBreak();
-            ?>
-        </section>
 
-        <!--<section class="main" id="section#">
-            <?php
-                //echo 'analitics';
-            ?>
-        </section>-->
+            }elseif($_GET["window"] == "settings"){
 
-        <section class="section" id="section4">
-            <?php
                 settings();
-            ?>
-        </section>
-        
+
+            }else{ 
+            
+                error();
+
+            }
+        }
+        ?>
     </main>
 
     <section class="overlay"></section>
@@ -214,7 +223,7 @@ include_once 'functions.php';
     ?>
 
     <!-- ---- JS ---- -->
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="./JS/index.js"></script>
 
 </body>
 </html>

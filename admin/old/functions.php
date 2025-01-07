@@ -1,8 +1,9 @@
-<?php   
+<?php
+// functions with structure of windows for admin panel 
 
 session_start();
 
-if(!isset ($_SESSION['adminLoged']))
+if(!isset ($_SESSION['adminLoged']))  // secruity 
 {
     header('Location:panel.login.php');
     exit();
@@ -21,9 +22,9 @@ if(!isset ($_SESSION['adminLoged']))
                     <h2></h2>
                         <?php
 
-                        include 'dashboard.alg.php';
-                            
-                        dasboard_data();
+                            //include 'dashboard.alg.php';
+                            echo 'error dashboard';
+                            //dashboard_data();
                         ?>
                 </div>
             </article>
@@ -32,7 +33,7 @@ if(!isset ($_SESSION['adminLoged']))
     <?php
     };
 
-
+    
     function addArticle() {
     ?>
     <article class="article">
@@ -103,7 +104,7 @@ if(!isset ($_SESSION['adminLoged']))
 
                             include 'all_articles.alg.php';
 
-                            all();
+                                //all();
                             ?>
                         </div>
                 </div>
@@ -184,5 +185,7 @@ if(!isset ($_SESSION['adminLoged']))
     </article>     
     <?php
     };
+
+
 
     

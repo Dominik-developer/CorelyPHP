@@ -4,13 +4,12 @@ session_start();
 
 if(!isset ($_SESSION['adminLoged']))
 {
-    header('Location:panel.login.php');
+    header('Location: ../panel.login.php');
     exit();
 }
 
-
 //additional files
-require_once 'panel.connect.php';
+require '../panel.connect.php';
 
 
 $conn = @new mysqli($host, $db_user, $db_password, $db_name);
@@ -22,7 +21,7 @@ if (isset($_POST['oldPass']) && isset($_POST['newPass']) && isset($_POST['newPas
         if ($conn->connect_errno!=0) {
             $_SESSION['message'] = 'connection to db fail';
             #echo 'Error: '.$conn->connect_error;
-            header('Location:panle.php');
+            header('Location: ../panel.php?window=settings');
             exit();
         }else{
     
@@ -48,35 +47,35 @@ if (isset($_POST['oldPass']) && isset($_POST['newPass']) && isset($_POST['newPas
                         if ($conn->query($sql_update) === TRUE) {
     
                             $_SESSION['message'] = 'Password changed successfully.';
-                            header('Location: panel.php');
+                            header('Location: ../panel.php?window=settings');
                         } else {
                             $_SESSION['message'] = 'Error: something went wrong during updating password';
                             #echo $conn->error;
-                            header('Location: panel.phps');
+                            header('Location: ../panel.php?window=settings');
                         }
     
                     } else {
                         $_SESSION['message'] = 'Old password is wrong';
-                        header('Location:panel.php');
+                        header('Location: ../panel.php?window=settings');
                     }
 
                 } else {
                     $_SESSION['message'] = 'more rows found than needed';
-                    header('Location: panel.phps');
+                    header('Location: ../panel.php?window=settings');
                 }
             }
             $conn->close();
             exit();
         }
     } else {
-        $_SESSION['message'] = 'new password different than one writen again';
-        header('Location:panel.php');
+        $_SESSION['message'] = 'new password different than one written again ';
+        header('Location: ../panel.php?window=settings');
         exit();   
     }
 
 } else {
     $_SESSION['message'] = 'POST table doesnt have all data';
-    header('Location:panel.php');
+    header('Location: panel.php?window=settings');
     exit(); 
 }
 

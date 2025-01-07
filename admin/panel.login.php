@@ -3,21 +3,18 @@
 session_start();
 
 
-
-if((isset($_SESSION['adminLoged'])) && ($_SESSION['aminLoged'] == true))
+if((isset($_SESSION['adminLoged'])) && ($_SESSION['adminLoged'] == true))  // think over
 {
-    //unset($_SESSION['adminLoged']);
     header('Location: panel.php');
     exit();
-
-    //jesli nie chcemy by zosrtały wykonane następne instrukcje w skrypcie php 
-    //znajdujące sie poniej instrukcji header naley uzyć exit(); 
-    //nastąpi natychmiastowe przekierowanie 
-    // nie kończymy imprzy, wychodzimy po angielsku 
+    // nie kończymy imprezy, wychodzimy po angielsku 
 
 }
 
-
+// cache control
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 
 ?>
 <html lang="en">

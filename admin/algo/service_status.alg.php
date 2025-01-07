@@ -4,13 +4,12 @@ session_start();
 
 if(!isset ($_SESSION['adminLoged']))
 {
-    header('Location:panel.login.php');
+    header('Location: ../panel.login.php');
     exit();
 }
 
 //additional files
-require_once 'panel.connect.php';
-
+require '../panel.connect.php';
 
 $conn = @new mysqli($host, $db_user, $db_password, $db_name);
 
@@ -20,7 +19,7 @@ if (isset($_POST['toggle'])) {
     if ($conn->connect_errno!=0) {
         $_SESSION['message'] = 'connection do db fail';
         #echo "Error: ".$conn->connect_error;
-        header('Location: panel.php');
+        header('Location: ../panel.php?window=service-break');
         exit();
     }else{
 
@@ -45,16 +44,16 @@ if (isset($_POST['toggle'])) {
                 if ($conn->query($sql_update) === TRUE) {
 
                     $_SESSION['message'] = 'Service status value changed successfully';
-                    header('Location: panel.php');
+                    header('Location: ../panel.php?window=service-break');
                 }else{
                     $_SESSION['message'] = 'Error: something went wrong during updating status';
                     #echo $conn->error;
-                    header('Location: panel.php');
+                    header('Location: ../panel.php?window=service-break');
                 }
 
             }else{
                 $_SESSION['message'] = 'more rows found than needed';
-                header('Location: panel.php');
+                header('Location: ../panel.php?window=service-break');
             }
         }
         $conn->close();
@@ -62,7 +61,7 @@ if (isset($_POST['toggle'])) {
     }
 }else{
     $_SESSION['message'] = 'something went wrong, try again';
-    header('Location: panel.php');
+    header('Location: ../panel.php?window=service-break');
     exit();
 }
 
