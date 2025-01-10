@@ -14,7 +14,8 @@ function dashboard_data() {
     echo'
         <div id="hello">
             Welcome on admin panel for your blog!
-
+            <br>
+            We are evolving for you! :)
         </div>
         ';
 }

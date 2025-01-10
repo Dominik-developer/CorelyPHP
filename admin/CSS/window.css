@@ -91,6 +91,7 @@ input[type=file] {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-top: 12px;
+    font-size: 14px;
 }
 
 input[type=file] {
@@ -162,13 +163,34 @@ input[type=file] {
 
 /* === spcific styles === ------------------------------------------*/
 
+/* === edit ===*/
+textarea {
+    width: 40%;
+    min-height: 100px; 
+    max-height: 300px; 
+    padding: 10px; 
+    font-size: 14px;
+    font-family: Arial, sans-serif; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    resize: vertical;
+}
 
+input[type="file"] {
 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+  }
+
+  a#showBttn {
+    width: 80px;
+  }
+  
 
 /* === error ===*/
-
-
-
 
 
 
