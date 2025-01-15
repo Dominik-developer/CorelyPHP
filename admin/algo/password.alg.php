@@ -41,8 +41,10 @@ if (isset($_POST['oldPass']) && isset($_POST['newPass']) && isset($_POST['newPas
 
                         $new_password = $_POST['newPass'];
 
+                        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
                         //DB update
-                        $sql_update = "UPDATE `admin` SET `password` = '$new_password' WHERE id=1 ";
+                        $sql_update = "UPDATE `admin` SET `password` = '$password_hash' WHERE id=1 ";
 
                         if ($conn->query($sql_update) === TRUE) {
     
@@ -78,4 +80,3 @@ if (isset($_POST['oldPass']) && isset($_POST['newPass']) && isset($_POST['newPas
     header('Location: panel.php?window=settings');
     exit(); 
 }
-
