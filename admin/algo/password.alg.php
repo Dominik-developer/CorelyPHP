@@ -24,36 +24,43 @@ if (isset($_POST['oldPass']) && isset($_POST['newPass']) && isset($_POST['newPas
             header('Location: ../panel.php?window=settings');
             exit();
         }else{
+
+            $ID = $_SESSION['id'];
     
-            $sql = "SELECT `login`, `password` FROM `admin` WHERE id=1 ";
+            $sql = "SELECT `password` FROM `admin` WHERE id = '$ID' ";
     
             if($result = @$conn->query(sprintf($sql)))
             {
-    
                 $num = $result->num_rows;
     
                 if($num >0)
                 {
-    
                     $row = $result->fetch_assoc();
-    
-                    if($_POST['oldPass'] == $row['password']) {
+
+                    if (password_verify($_POST['oldPass'], $row['password'])) {
 
                         $new_password = $_POST['newPass'];
+                        $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
 
-                        //DB update
-                        $sql_update = "UPDATE `admin` SET `password` = '$new_password' WHERE id=1 ";
+                        $sql = "UPDATE `admin` SET `password` = ? WHERE `id` = ?";
+                        $stmt = $conn->prepare($sql);
 
-                        if ($conn->query($sql_update) === TRUE) {
-    
+                        if (!$stmt) {
+                            die("Błąd przygotowania zapytania: " . $conn->error);
+                        }
+
+                        $stmt->bind_param("si", $password_hash, $ID);
+
+                        if ($stmt->execute()) {
                             $_SESSION['message'] = 'Password changed successfully.';
                             header('Location: ../panel.php?window=settings');
                         } else {
-                            $_SESSION['message'] = 'Error: something went wrong during updating password';
-                            #echo $conn->error;
-                            header('Location: ../panel.php?window=settings');
+                            $_SESSION['message'] = 'Error: something went wrong during updating password.<br>'. $stmt->error;
                         }
-    
+
+                        $stmt->close();
+                        $conn->close();
+
                     } else {
                         $_SESSION['message'] = 'Old password is wrong';
                         header('Location: ../panel.php?window=settings');
@@ -78,4 +85,3 @@ if (isset($_POST['oldPass']) && isset($_POST['newPass']) && isset($_POST['newPas
     header('Location: panel.php?window=settings');
     exit(); 
 }
-

@@ -1,0 +1,29 @@
+name: PHP Lint Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Pobierz kod z repozytorium
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Instalacja PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      # 3. Sprawdzenie składni PHP
+      - name: Lint PHP files
+        run: |
+          find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \;
