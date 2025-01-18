@@ -164,6 +164,11 @@ input[type=file] {
 /* === spcific styles === ------------------------------------------*/
 
 /* === edit ===*/
+
+/*article.window #edit */ /* in future */
+article.window #edit section.content{
+    overflow-y: scroll;
+}
 textarea {
     width: 40%;
     min-height: 100px; 
