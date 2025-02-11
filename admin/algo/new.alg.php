@@ -104,8 +104,8 @@ if(empty($_POST['title']) || empty($_FILES['textUpload']['name']) || empty($_FIL
                 while (file_exists($destination)) {
 
                     $filename = $base . "($i)." . $pathinfo["extension"];
-                    //$destination = "/Applications/XAMPP/xamppfiles/htdocs/serwer/panel/articles_photos/" . $filename;
-                    $destination = "/Applications/XAMPP/xamppfiles/htdocs/server/panel_new/articles_photos/" . $filename;
+
+                    $destination = "/Applications/XAMPP/xamppfiles/htdocs/server/panel_new/articles_photos/".$filename;
 
                     $i++;
                 }
@@ -134,7 +134,6 @@ if(empty($_POST['title']) || empty($_FILES['textUpload']['name']) || empty($_FIL
                 
                 $stmt_insert->close();
 
-                #$_SESSION['message'] = 'File uploaded successfully.';
             }
 
         } else {

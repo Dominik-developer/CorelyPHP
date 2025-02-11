@@ -20,8 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit('POST request method required');
 }
 
-if (isset($_POST['deleteText']) && isset($_POST['id'])) {
-    if ($_POST['deleteText'] === 'Destroy-article') { 
+if (/*isset($_POST['deleteText']) &&*/ isset($_POST['id'])) {
+    /*if ($_POST['deleteText'] === 'Destroy-article') { */ // this will be added in future
 
         if (filter_var($_POST['id'], FILTER_VALIDATE_INT)) {
             $articleId = (int)$_POST['id'];
@@ -48,11 +48,11 @@ if (isset($_POST['deleteText']) && isset($_POST['id'])) {
         } else {
             $_SESSION['message'] = 'Invalid article ID.';
         }
-    } else {
+    /*} else {
         $_SESSION['message'] = 'Error in security message. Try again.';
-    }
+    }*/
 } else {
-    $_SESSION['message'] = 'Error. No security message or article ID.';
+    $_SESSION['message'] = 'Error. No <!--security message or--> article ID.';
 }
 
 $conn->close();

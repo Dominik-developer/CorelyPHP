@@ -85,7 +85,8 @@ input[type=submit]:hover {
 }
 
 input[type=text],
-input[type=file] {
+input[type=file],
+input[type=password] {
     width: 40%;
     padding: 12px;
     border: 1px solid #ccc;

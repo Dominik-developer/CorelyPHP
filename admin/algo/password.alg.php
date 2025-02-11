@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 session_start();
 
@@ -10,7 +10,6 @@ if(!isset ($_SESSION['adminLoged']))
 
 //additional files
 require '../panel.connect.php';
-
 
 $conn = @new mysqli($host, $db_user, $db_password, $db_name);
 
@@ -46,7 +45,7 @@ if (isset($_POST['oldPass']) && isset($_POST['newPass']) && isset($_POST['newPas
                         $stmt = $conn->prepare($sql);
 
                         if (!$stmt) {
-                            die("Błąd przygotowania zapytania: " . $conn->error);
+                            die("Error during prepearing statement: " . $conn->error);
                         }
 
                         $stmt->bind_param("si", $password_hash, $ID);
@@ -54,8 +53,10 @@ if (isset($_POST['oldPass']) && isset($_POST['newPass']) && isset($_POST['newPas
                         if ($stmt->execute()) {
                             $_SESSION['message'] = 'Password changed successfully.';
                             header('Location: ../panel.php?window=settings');
+                            echo $_SERVER['message'];
                         } else {
-                            $_SESSION['message'] = 'Error: something went wrong during updating password.<br>'. $stmt->error;
+                            $_SESSION['message'] = 'Error: something went wrong during updating password.<br>'; //$stmt->error;
+                            echo $_SERVER['message'];
                         }
 
                         $stmt->close();

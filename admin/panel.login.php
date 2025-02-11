@@ -8,13 +8,21 @@ if((isset($_SESSION['adminLoged'])) && ($_SESSION['adminLoged'] == true))  // th
     header('Location: panel.php');
     exit();
     // nie kończymy imprezy, wychodzimy po angielsku 
-
 }
 
 // cache control
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
+
+
+// for dev
+define('ENV_DEV', false);
+if(ENV_DEV == true){
+    $_SESSION['adminLoged'] = true;
+    header('Location: panel.php');
+    exit();
+}
 
 ?>
 <html lang="en">
@@ -35,7 +43,7 @@ header("Pragma: no-cache");
             <br>
         </div>
         <div id="loginBoxForm">
-            <form action="panel_login.alg.php" method="POST">
+            <form action="panel.login.alg.php" method="POST">
                 
                 <input type="text" id="login" name="login" placeholder="Login:" required="require">
                 <br>

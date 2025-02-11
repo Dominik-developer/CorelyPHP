@@ -212,7 +212,7 @@ include 'window_functions.php';
     /* ---- POPOUT ---- */
         if (isset($_SESSION['message'])) {
             echo "
-            <div class='overlayPopout hidden' id='overlay'>
+            <div class='overlayPopout' id='overlay'>
                 <div class='popout'>
                     <span class='close-btn' id='close-btn'>&times;</span>
                     <p>{$_SESSION['message']}</p>

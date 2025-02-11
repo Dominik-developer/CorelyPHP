@@ -28,12 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
 /*mesage handler*/ 
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Zamknij popout po kliknięciu w X
+    // close poout by X 
     document.getElementById('close-btn')?.addEventListener('click', function() {
         document.getElementById('overlay').classList.add('hidden');
     });
 
-    // Zamknij popout po kliknięciu poza nim
+    // close popout area around popout 
     document.getElementById('overlay')?.addEventListener('click', function(event) {
         if (event.target.id === 'overlay') {
             document.getElementById('overlay').classList.add('hidden');
