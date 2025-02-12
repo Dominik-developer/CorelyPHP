@@ -142,7 +142,7 @@ if(!isset ($_SESSION['adminLoged']))
                                 </div>
                             </div>
                                 <div class="col-25">
-                                    <label for="old_photo">See old photo</label>
+                                    <label for="old_photo">Old photo</label>
                                 </div>
                                 <div class="col-75">
                                     <img name="old_photo" src="<?php echo '../'.$articleData['photo_path']; ?>" alt="<?php echo $articleData['title']; ?> photo" width="150" height="120">
@@ -157,30 +157,32 @@ if(!isset ($_SESSION['adminLoged']))
                                 </div>
                             </div>
                                 <br>
-                            <div class="row align-checkbox">
-                                <input type="checkbox" id="visibility-checkbox" name="visibility" required="required">
-                                <label for="visibility-checkbox">I confirm the changes to the article.</label>
-                            </div>
-                                <br>
-                            <div class="row align-checkbox">
-                                <input type="submit" value="Submit">
-                                <!--<button class="blue" type="submit" name="submit">Submit</button>--> <!-- if works, change for this one -->
-                            </div>
+                            <div class="form-container">
+                                <div class="form-left">
+                                    <input type="hidden" name="id" value="<?php echo $articleData['ID']; ?>">
+                                    <div class="row align-checkbox">
+                                        <input type="checkbox" id="visibility-checkbox" name="visibility" required="required">
+                                        <label for="visibility-checkbox">I confirm the changes to the article.</label>
+                                    </div>
+                                    <div class="row">
+                                        <input type="submit" value="Submit changes">
+                                    </div>
+                                </div>
                         </form>
                             <br>
-                        <form action="./algo/delate.alg.php" method="POST">
-                        
-                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($_GET['id']); ?>">
-
-                            <div class="row align-checkbox">
-                                <input type="checkbox" id="passwordChange-checkbox" name="passwordChange" required="required">
-                                <label for="passwordChange-checkbox">I confirm delete of article.</label>
+                                <div class="form-right">
+                                    <form action="./algo/delate.alg.php" method="POST">
+                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($_GET['id']); ?>">
+                                        <div class="row align-checkbox">
+                                            <input type="checkbox" id="passwordChange-checkbox" name="passwordChange" required="required">
+                                            <label for="passwordChange-checkbox">I confirm delete of article.</label>
+                                        </div>
+                                        <div class="row">
+                                            <button class="red" type="submit" name="send">Delete article</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                                    <br>
-                            <div class="row">
-                                <button class="red" type="submit" name="send">Delete article</button>
-                            </div>
-                        </form>
                     </section>
                 </section>
             </article>

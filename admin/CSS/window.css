@@ -189,15 +189,11 @@ input[type="file"] {
     border-radius: 5px;
     cursor: pointer;
     background-color: #fff;
-  }
+}
 
-  a#showBttn {
+a#showBttn {
     width: 80px;
-  }
-  
-
-/* === error ===*/
-
+}
 
 
 /* === popout message === */
@@ -297,4 +293,22 @@ input[type="file"] {
 
 .red:hover{
     background-color: #b30000;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Odstęp między formularzami */
+}
+
+.form-left {
+    flex: 1;
+}
+
+.form-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

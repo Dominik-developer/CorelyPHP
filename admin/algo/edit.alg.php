@@ -155,7 +155,7 @@ try {
 
                 if ($stmt_update->execute()) {
                     $_SESSION['message'] = 'Article was successfully updated.';
-                    header('Location: ../panel.php?window=edit-article&id='.$article_id);
+                    header('Location: ../panel.php?window=edit-article');
                     $stmt_update->close();
                     $conn->close();
                     exit();
