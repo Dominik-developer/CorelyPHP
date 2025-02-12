@@ -4,7 +4,7 @@
 
 ## Security Policy
 
-* **Latest Releases:** The newest release, currently version v1.0.0, is the only version receiving active security updates. We strongly recommend using the latest version whenever possible.
+* **Latest Releases:** The newest release, currently version v1.1.0, is the only version receiving active security updates. We strongly recommend using the latest version whenever possible.
 
 * **Review Changelog for Updates:** For minor updates or changes, please refer to the changelog to understand what has been updated or fixed.
 
@@ -22,9 +22,10 @@
 
 | Version       | Supported          |
 | ------------- | ------------------ |
-| pre-release   | :negative_squared_cross_mark:  |
-| v0.1.0-beta   | :white_check_mark: |
-| v1.0.0        | :white_check_mark: |
+| pre-release   | :negative_squared_cross_mark: |
+| v0.1.0-beta   | :negative_squared_cross_mark: |
+| v1.0.0        | :negative_squared_cross_mark: |
+| v1.1.0        | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
@@ -50,4 +51,4 @@ To report a vulnerability:
 * I may comment on your issue, so please turn on notifications to stay updated.
 
 Thank you for reporting issues and helping make the project more secure!  
-— Main developer: Dominik-developer
+- Main developer: **Dominik-developer** 
