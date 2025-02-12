@@ -4,17 +4,18 @@ session_start();
 
 if(!isset ($_SESSION['adminLoged']))
 {
-    header('Location:panel.login.php');
+    header('Location: ../panel.login.php');
     exit();
 }
 
 
-function dasboard_data() {
+function dashboard_data() {
 
     echo'
         <div id="hello">
             Welcome on admin panel for your blog!
-
+            <br>
+            We are evolving for you! :)
         </div>
         ';
 }

@@ -1,8 +1,10 @@
-# Style Guides for PHP CMS for blog
+# Style Guides for CorelyPHP
 
-This document outlines the coding and formatting standards to be followed when contributing to [PHP_CMS_for_blog](https://github.com/Dominik-developer/PHP_CMS_for_blog).
+This document outlines the coding and formatting standards to be followed when contributing to [CorelyPHP](https://github.com/Dominik-developer/CorelyPHP).
 
 This guideline is still in development and probaby will take a while before it will appears here because project is private now on GitHub. 
+
+If you nedd help create issue with label 'documentation' and tag Dominik-developer. 
 
 <!--
 ## Table of Contents

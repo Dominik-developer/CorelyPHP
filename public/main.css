@@ -8,30 +8,30 @@ body {
 }
 
 header {
-    background-color: #f0f0f0; /* jasne tło dla trybu jasnego */
+    background-color: #f0f0f0;
     color: #121212;
     padding: 10px;
     text-align: center;
-    position: relative; /* Zwrócone do poprzedniego */
+    position: relative; 
 }
 
 nav {
-    background-color: #e6e6e6; /* jasne tło dla trybu jasnego */
+    background-color: #e6e6e6; 
     padding: 10px;
     text-align: center;
     top: 0;
-    position: sticky; /* Zwrócone sticky na nawigacji */
+    position: sticky; 
     z-index: 11;
 }
 
 nav a {
-    color: #6A1B9A; /* Fioletowy kolor linków */
+    color: #6A1B9A; 
     text-decoration: none;
     margin: 0 10px;
 }
 
 nav a:hover {
-    color: #03DAC6; /* Miętowy kolor na hover */
+    color: #03DAC6;
 }
 
 main {
@@ -53,7 +53,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0; /* jasne tło dla trybu jasnego */
+    background-color: #f0f0f0; 
     color: #121212;
 }
 
@@ -90,7 +90,7 @@ div.articleTitle {
     border-bottom: 1px solid #E0E0E0;
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #6A1B9A; /* Fioletowy */
+    background-color: #6A1B9A; 
     color: #fff;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -125,11 +125,11 @@ img {
     }
 
     nav a {
-        color: #BB86FC; /* Fioletowy kolor dla trybu ciemnego */
+        color: #BB86FC; 
     }
 
     nav a:hover {
-        color: #03DAC6; /* Miętowy kolor na hover */
+        color: #03DAC6;
     }
 
     article.wrapper {
@@ -139,8 +139,13 @@ img {
     }
 
     div.articleTitle {
-        background-color: #BB86FC; /* Fioletowy dla trybu ciemnego */
+        background-color: #BB86FC;
         color: #121212;
+    }
+
+    article footer#date_of_pub {
+        background-color: #1F1B24;
+        color: #fff;
     }
 }
 

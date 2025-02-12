@@ -2,20 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## v1.0.0 – First Release
 
-## [Unreleased]
-Right now project is finished, I am working on fixing all the bugs and secruity issues. 
+### New in v1.0.0
+
+The project is ready for use but is still evolving. Work is ongoing to fix bugs and address security issues.
 
 ### Added
 <!-- - Initial examples of added changelog entries. -->
---
+.....
+
 ### Changed
 <!-- - Improved existing changelog entries for consistency. -->
---
+.....
+
 ### Fixed
 <!-- - Bugs identified in the initial release. -->
---
-
-## [pre release] - 2024-10-30
-### Added
-The only functionalities that are added right now are fix patches for media queries, secruity reasons bugs fixing.
+.....

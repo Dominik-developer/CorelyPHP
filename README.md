@@ -1,28 +1,45 @@
-# PHP_CMS_for_blog
+# **CorelyPHP – PHP CMS for Blogs**
 
-This project is ready to deploy blog webiste with seprate admin panel to manage data.
+**CorelyPHP** is a ready-to-deploy blogging platform with a separate admin panel for managing content.
 
-It is written in PHP with MySQL on backend and HTML, CSS and JavaScript on frontend.
+This project is built using:  
+- **Backend:** PHP with MySQL  
+- **Frontend:** HTML, CSS, JavaScript  
 
-All files all devided into 4 groups:
+## **Project Structure**  
 
-* admin - with all admin side files
-* docs - with documentation
-* public - with all user side files  
-* rest - all md files and license
-  
-This way of deviding files allows to not damage backend files while rebuilding fronend.
-The only concern is implemetation of PHP functions and HTML code that is deliverd by functions.
-But this may be easly fixed specialy that when rebuilding frontend you will want other data so queries may need some improvment or rebuild.
+All files are divided into the following sections:  
 
-I am still working to make sure this project is 100% secure,, responisve, functional, elegant and the possibly the best I can make it.
+- **`admin/`** – Contains all admin-side files  
+- **`docs/`** – Holds documentation  
+- **`public/`** – Contains user-facing files  
 
-Senior Dev probably will tell that few things could be build differnt or better, probably but all things I learned druring building this project will implemented in next one, plus I upgreade codebase all the time when I find easier or better way to write sometinng but I am limited by time.  
+This structured approach helps prevent backend modifications while rebuilding the frontend. The only challenge is the integration of PHP functions that generate HTML dynamically, but this can be adjusted when refining queries and templates.
 
-## Current version: v1.0.0
+## **Development Status**  
 
-This version number means which version should be used. Release version sometimes may just have small patches that are not worth rebuilding to new V. But make sure you read what is changing so you know what is going on.
+I am continuously improving **CorelyPHP** to make it:  
+✔ Secure  
+✔ Responsive  
+✔ Fully functional  
+✔ Elegant  
+✔ Efficient  
 
-## INFO
+This project is a work in progress, and while some parts may be improved or rewritten in future updates, it is stable and ready for use. Contributions and feedback are always welcome!
 
-Check SECRUITY.md and CHANGELOG.md for information about versions and other stuff.
+A more experienced developer might suggest alternative or optimized approaches. However, every lesson I’ve learned during this project will be applied to future updates and projects. I also refine the codebase whenever I find better solutions, though time constraints may limit immediate improvements.
+
+## **Project Guidelines & Documentation**  
+
+For more details on the project, check out the following files:  
+
+- 📜 **[LICENSE](LICENSE)** – License terms and conditions  
+- 🛠 **[CONTRIBUTING.md](CONTRIBUTING.md)** – Guidelines for contributors  
+- 🚀 **[STYLE_GUIDES.md](STYLE_GUIDES.md)** – Code style and best practices  
+- 🔄 **[CHANGELOG.md](CHANGELOG.md)** – Version history and updates  
+- 🔐 **[SECURITY.md](SECURITY.md)** – Security policies and vulnerability reporting  
+- 🌍 **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** – Community guidelines  
+
+## **Current Version: v1.0.0**
+
+The versioning system ensures clarity on stable releases. Minor patches may not require immediate updates, but always check the **CHANGELOG.md** for details on new features and fixes.

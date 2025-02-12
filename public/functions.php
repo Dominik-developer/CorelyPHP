@@ -47,9 +47,12 @@ function all_articles(){
                                 '. $row['title'] . '<br>
                             </div>
                             <div class="articleSummary">
-                                <td>' . substr($row['text'], 0, 50) . '...<td>
+                            
+                                <img src="../'.$row['photo_path'].'" alt="photo from article ">
+                                
+                                <br>
 
-                                <!--<img src="../'.$row['photo_path'].'" alt="photo from article ">-->
+                                <td>' . substr($row['text'], 0, 50) . '...<td>
                                
                             </div>
                         </a>

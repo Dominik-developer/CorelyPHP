@@ -2,6 +2,8 @@
 
     session_start();
 
+    $_SESSION['adminLoged'] = false; // i make sure it has value different from true
+
     session_unset(); //session_destroy();
 
     header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
@@ -9,5 +11,5 @@
     header('Pragma: no-cache');
     header('Expires: Wed, 11 Jan 1984 05:00:00 GMT');
 
-    header('Location:panel.login.php');//panel.logout.out.php
+    header('Location:panel.login.php'); //panel.logout.out.php
     exit();

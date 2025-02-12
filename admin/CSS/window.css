@@ -1,115 +1,47 @@
 
-:root {
-    /*--primary-color: #3498db;*/
-    --n: none;
-    --b: block;
-
-    --light_color: #707070;
-    --dark_color: #333;
-    --cover_color: #fff;
-    --cover_background: #4070f4;
-    --body_background: #e3f2fd;
-    --nav_background: #fff;
-
-    --border_r: 8px;
-}
-
-.section {
-    display: none !important;
-    border-radius: 8px;
-    /*padding: 10px;*/
-}
-
-.section.visible {
-    /*background-color: chartreuse;*/
-    display: block !important;
-}
-
-/*main section.main a {
-    font-size: xx-large;
-}*/
-
-/* --- ARTICLES --- */
-.article {
-    width: 100%;
-    height: 100%;
-}
-
-
-/* --- BAR --- */
-.menuBar {
-    height: 60px;
-    width: 100%;
-    background-color: var(--nav_background);
-    color: var(--dark_color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top-left-radius: var(--border_r);
-    border-top-right-radius: var(--border_r);
-}
-
-.menuBar a {
-    color: var(--dark_color);
-    text-decoration: none;
-    padding: 10px;
-    /* padding: 0 20px;*/
-    text-align: center;
-    font-size: 20px;
-    margin: 20px;
-}
-
-.menuBar a.menuBarLink:hover
-/*,
-.menuBar a.menuBarLink.active*/ {
-    background-color: var(--cover_background);
-    color: var(--cover_color);
-    border-radius: var(--border_r);
-    transition: background-color 0.3s;
-    cursor: pointer;
-}
-
-
-
-/* --- MAIN --- */
-.mainSection {
-    height: calc(100% - 60px);
-    width: 100%;
-    /*overflow: hidden;*/
-    /*height: 100%;*/
-}
-
-.mainArticle {
-    width: 100%;
-    background-color: var(--nav_background);
-    height: 100%;
-    display: none;
-    border-bottom-left-radius: var(--border_r);
-    border-bottom-right-radius: var(--border_r);
-    border-top: 1px solid var(--dark_color);
-    box-sizing: border-box;
-    overflow: hidden; 
-}
-
-.mainArticle.visible {
+/* === general window === */
+article.window {
     display: block;
-    padding: 10px;
+    width: 100%;
+    height: 100%;
 }
 
-/* --- FORMS: SERVICE BREAK & ADD ARTICLE --- */
+.main {
+    padding: 20px;
+    background-color: #fff; /* Kolor tła sekcji */
+    height: 100%;
+}
+
+/** window name */
+.main h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* Kolor nagłówka */
+}
+
+/** window content */
+.main .content {
+    padding: 20px;
+    background-color: #f2f2f2; /* Kolor tła wewnętrznej sekcji */
+    border-radius: 8px; 
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333; 
+    font-size: 16px;
+    height: 90%;
+}
 
 
-
-/* --- GLOBAL STYLES --- */
-.form-container,
-#form-container {
+/* === GLOBAL STYLES ==== */
+.content {
     /*background-color: #f2f2f2;*/
     padding: 20px;
     width: 100%;
     height: auto;
 }
 
-h2 {
+.main h2 {
     margin-bottom: 20px;
 }
 
@@ -153,12 +85,14 @@ input[type=submit]:hover {
 }
 
 input[type=text],
-input[type=file] {
+input[type=file],
+input[type=password] {
     width: 40%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-top: 12px;
+    font-size: 14px;
 }
 
 input[type=file] {
@@ -228,47 +162,62 @@ input[type=file] {
     max-width: 2000px; 
 }
 
-/* DASHBOARD */
+/* === spcific styles === ------------------------------------------*/
 
-* {
-    box-sizing: border-box;
+/* === edit ===*/
+
+/*article.window #edit */ /* in future */
+article.window #edit section.content{
+    overflow-y: scroll;
+}
+textarea {
+    width: 40%;
+    min-height: 100px; 
+    max-height: 300px; 
+    padding: 10px; 
+    font-size: 14px;
+    font-family: Arial, sans-serif; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    resize: vertical;
 }
 
-#data {
+input[type="file"] {
+
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+a#showBttn {
+    width: 80px;
+}
+
+/** fixing forms */
+.form-container {
     display: flex;
     justify-content: space-between;
-    height: 100%; 
-    overflow: hidden; 
+    align-items: flex-start;
+    gap: 20px; /* Odstęp między formularzami */
 }
 
-.column {
-    width: 100%;
+.form-left {
+    flex: 1;
 }
 
-.columnContent {
-    height: 100%;
-    overflow-y: auto; 
-}
-
-.form-container {
-    height: 100%; 
-}
-
-@media (max-height: 1000px) {
-    .mainArticle {
-        overflow-y: auto;
-        
-    }
-
-    .form-container{
-        padding-left: 0;
-        padding-right: 0;
-    }
+.form-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 
+/* === popout message === */
 
-/* message */
+/** message */
 .overlayPopout {
     position: fixed;
     top: 0;
@@ -282,7 +231,7 @@ input[type=file] {
     z-index: 9999;
 }
 
-/* Styl dla samego popouta */
+/** popout styles */
 .popout {
     background-color: #fff;
     padding: 10px;
@@ -295,24 +244,72 @@ input[type=file] {
     z-index: 1000;
 }
 
-/* Styl dla przycisku zamknięcia */
+/** Styles for button */
 .popout .close-btn {
     position: absolute;
-    top: -1px; /* Przesunięcie guzika wyżej */
-    right: 7px; /* Można dostosować */
+    top: -1px; 
+    right: 7px; /* can be adjusted */
     cursor: pointer;
     font-size: 20px;
     color: #333;
 }
 
-/* Styl dla tekstu wewnątrz popouta */
 .popout p {
     margin: 0;
     padding: 10px 0;
     line-height: 1.5;
 }
 
-/* Ukryj popout na początku */
+/** hide at the beggining */
 .hidden {
     display: none;
+}
+
+
+/* === color buttons === */
+.custom-button {
+    display: inline-block; 
+    width: 70px; 
+    padding: 10px;
+    margin: 10px 0;
+    color: #fff;
+    text-align: center; 
+    text-decoration: none; 
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; 
+    font-size: 15px;
+    font-family: inherit; 
+}
+
+.blue{
+    background-color: #4070f4;
+}
+
+.green{
+    background-color: green;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.red{
+    background-color: red;
+}
+    
+.blue:hover{
+    background-color: #3056c6;
+}
+
+.green:hover{
+    background-color: #006400;
+}
+
+.orange:hover{
+    background-color: #cc8400;
+}
+
+.red:hover{
+    background-color: #b30000;
 }
