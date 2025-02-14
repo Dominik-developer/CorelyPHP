@@ -74,7 +74,6 @@ if(empty($_POST['title']) || empty($_FILES['textUpload']['name']) || empty($_FIL
     if ($conn->connect_errno != 0) {
         $_SESSION['message'] = 'db connection fail.';
         header('Location: ../panel.php?window=add-article');
-        #echo "Error: " . $conn->connect_error;
         #throw new Exception(mysqli_connect_errno());
     } else {
 
@@ -96,7 +95,7 @@ if(empty($_POST['title']) || empty($_FILES['textUpload']['name']) || empty($_FIL
 
                 $filename = $base . "." . $pathinfo["extension"];
 
-                $destination = "/Applications/XAMPP/xamppfiles/htdocs/server/panel_new/articles_photos/" . $filename;
+                $destination = dirname(__DIR__, 2) . "/articles_photos/" . $filename;
 
                 // Add a numeric suffix if the file already exists
                 $i = 1;
@@ -105,7 +104,7 @@ if(empty($_POST['title']) || empty($_FILES['textUpload']['name']) || empty($_FIL
 
                     $filename = $base . "($i)." . $pathinfo["extension"];
 
-                    $destination = "/Applications/XAMPP/xamppfiles/htdocs/server/panel_new/articles_photos/".$filename;
+                    $destination = dirname(__DIR__, 2) . "/articles_photos/" . $filename;
 
                     $i++;
                 }
@@ -126,7 +125,7 @@ if(empty($_POST['title']) || empty($_FILES['textUpload']['name']) || empty($_FIL
                 if ($stmt_insert->execute()) {
 
                     $_SESSION['message'] = 'Article was succesfully addes to db.';
-                    header('Location: ../panel.php?window=add-article');
+                    header('Location: ../panel.php?window=all-articles');
                 } else {
                     $_SESSION['message'] = 'Error during adding data to db.';
                     header('Location: ../panel.php?window=add-article');
