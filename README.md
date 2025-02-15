@@ -10,7 +10,8 @@ This project is built using:
 
 All files are divided into the following sections:  
 
-- **`admin/`** – Contains all admin-side files  
+- **`admin/`** – Contains all admin-side files
+- **`articles_photos/`** - Holds photos for articles
 - **`docs/`** – Holds documentation  
 - **`public/`** – Contains user-facing files  
 
