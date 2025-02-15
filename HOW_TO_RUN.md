@@ -2,8 +2,7 @@
 # CorelyPHP
 
 ## Introduction
-
-CorelyPHP is a PHP-based framework designed for efficient web development. This guide provides instructions on how to set up and run the project on your local machine.
+CorelyPHP is a ready-to-deploy blogging platform designed for efficient web development. This guide provides instructions on how to set up and run the project on your local machine.
 
 ## Prerequisites
 
@@ -26,10 +25,9 @@ Before you begin, ensure you have the following installed:
 2. Set up the database:
 
    - Open phpMyAdmin in your browser (http://localhost/phpmyadmin).
-   - Create a new database.
    - Import the SQL files located in the `sql` folder:
-     - `database_structure.sql`
-     - `database_data.sql`
+     - Create a new database by importing `database_structure.sql`
+     - Add ne`database_data.sql`
 
 3. Start the development server using XAMPP:
 
