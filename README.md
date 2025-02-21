@@ -41,6 +41,6 @@ For more details on the project, check out the following files:
 - 🔐 **[SECURITY.md](SECURITY.md)** – Security policies and vulnerability reporting  
 - 🌍 **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** – Community guidelines  
 
-## **Current Version: v1.0.0**
+## **Current Version: v1.1.0**
 
 The versioning system ensures clarity on stable releases. Minor patches may not require immediate updates, but always check the **CHANGELOG.md** for details on new features and fixes.
