@@ -10,7 +10,8 @@ This project is built using:
 
 All files are divided into the following sections:  
 
-- **`admin/`** – Contains all admin-side files  
+- **`admin/`** – Contains all admin-side files
+- **`articles_photos/`** - Holds photos for articles
 - **`docs/`** – Holds documentation  
 - **`public/`** – Contains user-facing files  
 
@@ -40,6 +41,6 @@ For more details on the project, check out the following files:
 - 🔐 **[SECURITY.md](SECURITY.md)** – Security policies and vulnerability reporting  
 - 🌍 **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** – Community guidelines  
 
-## **Current Version: v1.0.0**
+## **Current Version: v1.1.0**
 
 The versioning system ensures clarity on stable releases. Minor patches may not require immediate updates, but always check the **CHANGELOG.md** for details on new features and fixes.

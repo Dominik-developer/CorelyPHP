@@ -35,8 +35,8 @@ function all() {
                 echo '<td>' . $row['date_of_publish'] . '</td>';
                 echo '<td>' . substr($row['text'], 0, 50) . '...</td>'; 
                 echo '<td>' . $row['photo_path'] . '</td>';
-                echo '<td><a class="custom-button green" href="http://localhost/server/panel_new/public/single.php?title='.$row['title'].'" target="_blank">View</a></td>';
-                echo '<td><a class="custom-button orange" href="http://localhost/server/panel_new/admin/panel.php?window=edit-article&id='.$row['ID'].'">Edit</a></td>';
+                echo '<td><a class="custom-button green" href="../public/single.php?title='.$row['title'].'" target="_blank">View</a></td>';
+                echo '<td><a class="custom-button orange" href="panel.php?window=edit-article&id='.$row['ID'].'">Edit</a></td>';
                 echo '</tr>';
             }
             echo '</tbody>';

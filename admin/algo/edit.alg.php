@@ -27,8 +27,8 @@ try {
             exit();
         }
     
-        $NEW_title = mysqli_real_escape_string($conn, $_POST['new_title'] ?? '');
-        $NEW_text = mysqli_real_escape_string($conn, $_POST['new_text'] ?? '');
+        $NEW_title = $_POST['new_title'] ?? ''; //$NEW_title = mysqli_real_escape_string($conn, $_POST['new_title'] ?? '');
+        $NEW_text = $_POST['new_text'] ?? ''; //$NEW_text = mysqli_real_escape_string($conn, $_POST['new_text'] ?? '');
         $NEW_photo = $_FILES['new_photo'] ?? '';
         
         // Validate required fields
@@ -63,14 +63,13 @@ try {
                 // If a new photo is submitted
                 if(!empty($_FILES['new_photo']['name'])) {
 
-                    // Remove the old photo if a new one is being uploaded
-                    #=========usuwanie=strego=zdjecia=====
+                    #========= Remove the old photo if a new one is being uploaded =====
 
                     /** *
                         check in db what way i have path for photos saved and fix it in case it is the other way
                     */
-                    if (!empty($existing_photo) && file_exists('/Applications/XAMPP/xamppfiles/htdocs/server/panel_new/' . $existing_photo)) {
-                        unlink('/Applications/XAMPP/xamppfiles/htdocs/server/panel_new/' . $existing_photo);
+                    if (!empty($existing_photo) && file_exists(dirname(__DIR__, 2) .'/'. $existing_photo)) {
+                        unlink(dirname(__DIR__, 2) .'/'. $existing_photo);
                     }
 
                     // Check for upload errors
@@ -123,13 +122,16 @@ try {
                     $pathinfo = pathinfo($_FILES["new_photo"]["name"]);
                     $base = preg_replace("/[^\w-]/", "_", $pathinfo["filename"]);
                     $filename = $base . "." . $pathinfo["extension"];
-                    $destination = "/Applications/XAMPP/xamppfiles/htdocs/server/panel_new/articles_photos/" . $filename;
+                    
+                    $destination = dirname(__DIR__, 2) . "/articles_photos/" . $filename;
 
                     // Add a numeric suffix if file exists
                     $i = 1;
                     while (file_exists($destination)) {
                         $filename = $base . "($i)." . $pathinfo["extension"];
-                        $destination = "/Applications/XAMPP/xamppfiles/htdocs/server/panel_new/articles_photos/" . $filename;
+
+                        $destination = dirname(__DIR__, 2) . "/articles_photos/" . $filename;
+
                         $i++;
                     }
 

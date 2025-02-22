@@ -1,9 +1,9 @@
 
-main{
+main {
     text-align: center;
     box-sizing: border-box;
 }
-section#main{
+section#main {
     display: inline-block;
     text-align: center;
 }
@@ -20,7 +20,7 @@ article {
     }
 }
 
-article header{
+article header {
     height: 50px;
     font-size: 40px;
     border-radius: 8px;
@@ -29,14 +29,14 @@ article header{
     margin: 0;
 }
 
-article div#photo{
+article div#photo {
     /*max-width: 1000px;*/
     padding: 10px;
     position: relative;
     transition: transform 0.3s ease, z-index 0s;  
 }
 
-article img{
+article img {
     width: 250px;
     min-height: 150px;
     border-radius: 8px !important;
@@ -51,7 +51,7 @@ article img:hover {
 }
 */
 
-article p{
+article p {
     /*max-width: 1000px;*/
     text-align: justify;
     padding-left: 10px;
@@ -62,7 +62,7 @@ article p{
     line-height: 1.8; 
 }
 
-article footer{
+article footer {
     /*max-width: 1000px;*/
     background-color: #fff;
     color: #121212;
@@ -70,7 +70,14 @@ article footer{
     text-align: left;
     align-items: normal;
     padding-left: 20px;
-    max-height: 40px;
+    height: 35px;
     box-sizing: border-box;
     margin-top: 5px;
+}
+
+@media screen and (max-width: 440px) {
+    
+    article footer { 
+        min-height: 70px;
+    }
 }
