@@ -27,7 +27,7 @@ Before you begin, ensure you have the following installed:
    - Open phpMyAdmin in your browser (http://localhost/phpmyadmin).
    - Import the SQL files located in the `sql` folder:
      - Create a new database by importing `database_structure.sql`
-     - Add ne`database_data.sql`
+     - Add the `database_data.sql`
 
 3. Start the development server using XAMPP:
 
@@ -35,11 +35,15 @@ Before you begin, ensure you have the following installed:
    - Start Apache and MySQL.
    - Place the repository in the `htdocs` folder inside the XAMPP directory.
 
-4. Access the project in your browser: `http://localhost/CorelyPHP`.
+4. Access the project folder in your browser: `http://localhost/CorelyPHP`:
+   - For user: `http://localhost/CorelyPHP/public`
+   - For admin: `http://localhost/CorelyPHP/admin`
 
-## Usage
+6. To log into Admin panel use **`Admin`** for login and **`pass`** for password.
 
-Once the server is running, visit `http://localhost/CorelyPHP` in your browser to access the application.
+<!-- ## Usage
+
+ Once the server is running, visit `http://localhost/CorelyPHP` in your browser to access the application. -->
 
 ## Contributing
 
