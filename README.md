@@ -3,8 +3,9 @@
 **CorelyPHP** is a ready-to-deploy blogging platform with a separate admin panel for managing content.
 
 This project is built using:  
-- **Backend:** PHP with MySQL  
-- **Frontend:** HTML, CSS, JavaScript  
+
+- **`Backend:`** PHP with MySQL
+- **`Frontend:`** HTML, CSS, JavaScript
 
 ## **Project Structure**  
 
@@ -40,6 +41,7 @@ For more details on the project, check out the following files:
 - 🔄 **[CHANGELOG.md](CHANGELOG.md)** – Version history and updates  
 - 🔐 **[SECURITY.md](SECURITY.md)** – Security policies and vulnerability reporting  
 - 🌍 **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** – Community guidelines  
+- 🙌 **[SUPPORT.md](SUPPORT.md)** – Support for community
 
 ## **Current Version: v1.1.0**
 
