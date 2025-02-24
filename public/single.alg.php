@@ -2,7 +2,7 @@
 
 
 
-function articles($restored_title) {
+function articles($restored_title): void {
     require 'connect.php';
 
     $conn = new mysqli($host, $db_user, $db_password, $db_name);
@@ -10,7 +10,7 @@ function articles($restored_title) {
     if ($conn->connect_errno) {
         header("HTTP/1.1 500 Internal Server Error");
         header("Location: error_404.php");
-        return;
+        exit();
     }
 
     // prepared statement
@@ -23,7 +23,7 @@ function articles($restored_title) {
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
 
-        echo '
+        echo'
             <article> 
                 <header id="title">
                     <a>' . htmlspecialchars($row['title']) . '</a>

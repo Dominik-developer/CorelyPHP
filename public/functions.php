@@ -1,19 +1,13 @@
 <?php
 
-session_start();
-
-
 // header
-function head(){
-    ?>
-
-    <h1> Blog </h1>
+function head(): string{
     
-    <?php
+    return '<h1> Blog </h1>';
 }
 
 // main
-function all_articles(){
+function all_articles(): void{
 
     require 'connect.php';
 
@@ -71,12 +65,13 @@ function all_articles(){
 
 
 //footer
-function foot(){
-    ?>  
+function foot(): string{
+    
+    return '
         <div>
             <a>&copy 2024 - <?php echo date("Y"); ?> Dominik-developer <!--project:one®--></a>
             <br><br>
              <a> Contact: www.blog@example.com</a> <!--<a>+00 000 000 000  </a>-->
-        </div>
-    <?php
+        </div>';
+   
 }

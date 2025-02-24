@@ -1,9 +1,7 @@
 <?php
 
-function service()
+function service(): void
 {
-
-    session_start();
 
     require 'connect.php';
 
@@ -26,22 +24,17 @@ function service()
             
             if($num >0)
             {
-
                 $row = $result->fetch_assoc();
                 
                 $_SESSION['service_status'] = $row['service_status'];
-                
-                //echo $_SESSION['servis_status'];
 
                 if(!$_SESSION['service_status'] == 0)
                 {
-                    echo 'servis';
                     //unset($_SESSION['status']);
                     header('Location: service.html');
                 }
                 else
                 {
-                    //echo 'no servis';
                     //$_SESSION['user_session'] = session_id(); // Przypisanie identyfikatora sesji
                 }
                 
