@@ -28,10 +28,32 @@ jobs:
         run: |
           find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \;
 
-      # 4. (Optional) Install Composer dependencies - useful if you add dependencies in the future
+      # 4. Install PHPStan (Static Analysis Tool)
+      - name: Install PHPStan
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar require --dev phpstan/phpstan
+
+      # 5. Run PHPStan to analyze code quality
+      - name: Run PHPStan
+        run: |
+          vendor/bin/phpstan analyse --level=max
+
+      # 6. Install PHP CS Fixer (Code Style Checker)
+      - name: Install PHP CS Fixer
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar require --dev friendsofphp/php-cs-fixer
+
+      # 7. Run PHP CS Fixer to check code style
+      - name: Check code style
+        run: |
+          vendor/bin/php-cs-fixer fix --dry-run --diff
+
+      # 8. (Optional) Install Composer dependencies - useful if you add dependencies in the future
       # - name: Install dependencies
       #   run: composer install --no-progress --no-suggest
 
-      # 5. (Optional) Run unit tests - for example, PHPUnit
+      # 9. (Optional) Run unit tests - for example, PHPUnit
       # - name: Run tests
       #   run: vendor/bin/phpunit
