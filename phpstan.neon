@@ -1,5 +1,5 @@
 parameters:
-    level: 5  # 0->9
+    level: 1  # 0->9
     paths:
         - admin
         - public
