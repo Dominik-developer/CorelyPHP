@@ -1,0 +1,8 @@
+parameters:
+    level: 5  # 0->9
+    paths:
+        - admin
+        - public
+    ignoreErrors:
+        - '#Call to an undefined method#'
+        - '#Property .* does not exist#'
