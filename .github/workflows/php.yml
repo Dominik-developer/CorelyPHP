@@ -13,39 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Pobierz kod z repozytorium
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 2. Instalacja PHP
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
 
-      - name: Install Composer
-        run: |
-          curl -sS https://getcomposer.org/installer | php
-          mv composer.phar /usr/local/bin/composer
-
+      # 3. Sprawdzenie składni PHP
       - name: Lint PHP files
-        run: find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \;
-
-     # - name: Install PHPStan
-     #   run: composer require --dev phpstan/phpstan
-
-     # - name: Run PHPStan (temporarily suppressed)
-     #   run: vendor/bin/phpstan analyse --configuration=phpstan.neon --no-progress --error-format=table || true
-
-      #- name: Install PHP CS Fixer
-      #  run: composer require --dev friendsofphp/php-cs-fixer
-
-      #- name: Check code style
-      #  run: vendor/bin/php-cs-fixer fix --dry-run --diff
-
-      # 8. (Optional) Install Composer dependencies - useful if you add dependencies in the future
-      # - name: Install dependencies
-      #   run: composer install --no-progress --no-suggest
-
-      # 9. (Optional) Run unit tests - for example, PHPUnit
-      # - name: Run tests
-      #   run: vendor/bin/phpunit
-
+        run: |
+          find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \;
