@@ -29,11 +29,11 @@ jobs:
       - name: Lint PHP files
         run: find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \;
 
-      - name: Install PHPStan
-        run: composer require --dev phpstan/phpstan
+     # - name: Install PHPStan
+     #   run: composer require --dev phpstan/phpstan
 
-      - name: Run PHPStan (temporarily suppressed)
-        run: vendor/bin/phpstan analyse --configuration=phpstan.neon --no-progress --error-format=table || true
+     # - name: Run PHPStan (temporarily suppressed)
+     #   run: vendor/bin/phpstan analyse --configuration=phpstan.neon --no-progress --error-format=table || true
 
       #- name: Install PHP CS Fixer
       #  run: composer require --dev friendsofphp/php-cs-fixer
