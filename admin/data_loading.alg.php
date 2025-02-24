@@ -1,13 +1,12 @@
 <?php
-
-session_start();
+declare(strict_types=1);
 
 if (!isset($_SESSION['adminLoged'])) {
     header('Location: panel.login.php');
     exit();
 }
 
-function edit_dataLoading($articleID) {
+function edit_dataLoading($articleID): array|bool|null {
     require 'panel.connect.php';
 
     $conn = @new mysqli($host, $db_user, $db_password, $db_name);
@@ -32,8 +31,3 @@ function edit_dataLoading($articleID) {
         }
     }
 }
-
-
-
-
-

@@ -13,18 +13,18 @@ First off, thank you for considering contributing to [CorelyPHP](https://github.
    - Expected vs. actual behavior.
    - Screenshots or logs (if applicable/possible).
    - Environment details (e.g., OS, browser).
-3. **Remember to follow** [Style Guides](https://github.com/Dominik-developer/CorelyPHP/STYLE_GUIDES.md) for this software.
+3. **Remember to follow** [Style Guides](https://github.com/Dominik-developer/CorelyPHP/blob/main/STYLE_GUIDES.md) for this software.
 
 ## How to Suggest a Feature
 
-1. **Search existing suggestions:** Ensure your idea isn’t already suggested in [existing issues](https://github.com/Dominik-developerCorelyPHP/issues).
+1. **Search existing suggestions:** Ensure your idea isn’t already suggested in [existing issues](https://github.com/Dominik-developer/CorelyPHP/issues).
 2. **If it’s a new idea:**
    - Open a new issue.
    - Add a clear title and description.
    - Explain why the feature is needed and what problem it solves.
    - Describe how the feature might work or look.
    - Potential implementation ideas.
-3. **Remember to follow** [Style Guides](https://github.com/Dominik-developer/CorelyPHP/STYLE_GUIDES.md) for this software.
+3. **Remember to follow** [Style Guides](https://github.com/Dominik-developer/CorelyPHP/blob/main/STYLE_GUIDES.md) for this software.
 
 ## Code of Conduct
 

@@ -1,6 +1,5 @@
 <?php
-
-session_start();
+declare(strict_types=1);
 
 if(!isset ($_SESSION['adminLoged']))
 {
@@ -8,10 +7,9 @@ if(!isset ($_SESSION['adminLoged']))
     exit();
 }
 
+function dashboard_data(): string {
 
-function dashboard_data() {
-
-    echo'
+    return'
         <div id="hello">
             Welcome on admin panel for your blog!
             <br>

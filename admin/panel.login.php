@@ -1,9 +1,11 @@
-<!DOCTYPE html>
 <?php
-session_start();
+declare(strict_types=1);
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-if((isset($_SESSION['adminLoged'])) && ($_SESSION['adminLoged'] == true))  // think over
+if((isset($_SESSION['adminLoged'])) && ($_SESSION['adminLoged'] == true))
 {
     header('Location: panel.php');
     exit();
@@ -25,6 +27,7 @@ if(ENV_DEV == true){
 }
 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

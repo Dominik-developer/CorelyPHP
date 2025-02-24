@@ -1,16 +1,13 @@
-
-<!DOCTYPE html>
 <?php
+declare(strict_types=1);
 
 session_start();
-
 
 if(!isset ($_SESSION['adminLoged']))
 {
     header('Location: panel.login.php');
     exit();
 }
-
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
     // Session expired - delete session data
@@ -25,12 +22,12 @@ require_once 'panel.connect.php';
 include 'window_functions.php';
 
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel #<?php echo $_SESSION['id'];?></title>
+    <title>Admin Panel <?php echo $_SESSION['id']; ?></title>
 
     <!-----===== SECRUITY TAGS ===== -->
     <meta name="robots" content="noindex, nofollow">
@@ -80,7 +77,7 @@ include 'window_functions.php';
     <nav>
         <div class="logo">
             <i class="bx bx-menu menu-icon topbar"></i>
-            <span class="logo-name topbar">Admin Panel #<?php echo $_SESSION['id']; ?></span>
+            <span class="logo-name topbar">Admin Panel <?php /*echo $_SESSION['id'];*/ ?></span>
         </div>
 
         <div class="sidebar">
@@ -167,16 +164,22 @@ include 'window_functions.php';
     <main>
         <?php
 
-        $windows = ["dashboard", /*"revenue",*/ "all-article", "add-article", "edit-article", "service-break", /*"analytics", "files",*/ "settings"];
-        $currentWindow = isset($_GET["window"]) ? $_GET["window"]: "dashboard";
+        //$windows = ["dashboard", /*"revenue",*/ "all-article", "add-article", "edit-article", "service-break", /*"analytics", "files",*/ "settings"];
+        //$currentWindow = isset($_GET["window"]) ? $_GET["window"]: "dashboard";
 
-        if($_GET["window"] == "dashboard" || !isset($_GET["window"]) ){
+        if (isset($_GET["window"]) && $_GET["window"] == "dashboard") {
             
             dashboard();
-
+            
+            echo password_hash('pass', PASSWORD_DEFAULT);
+            
         }else{ // if new widows added, there must be added new if statements added as well
 
-            if($_GET["window"] == "all-articles"){
+            if(!isset($_GET["window"]) || $_GET["window"] == "") {
+            
+                dashboard();
+            
+            }elseif($_GET["window"] == "all-articles"){
 
                 allArticles();
 

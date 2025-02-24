@@ -1,6 +1,9 @@
 <?php
+declare(strict_types=1);
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 if(!isset ($_SESSION['adminLoged'])) {
     header('Location: ../panel.login.php');
@@ -9,9 +12,6 @@ if(!isset ($_SESSION['adminLoged'])) {
 
 //additional files
 require '../panel.connect.php';
-
-
-
 
 try {
     $conn = @new mysqli($host, $db_user, $db_password, $db_name);
@@ -27,8 +27,8 @@ try {
             exit();
         }
     
-        $NEW_title = $_POST['new_title'] ?? ''; //$NEW_title = mysqli_real_escape_string($conn, $_POST['new_title'] ?? '');
-        $NEW_text = $_POST['new_text'] ?? ''; //$NEW_text = mysqli_real_escape_string($conn, $_POST['new_text'] ?? '');
+        $NEW_title = $_POST['new_title'] ?? ''; 
+        $NEW_text = $_POST['new_text'] ?? ''; 
         $NEW_photo = $_FILES['new_photo'] ?? '';
         
         // Validate required fields
@@ -64,10 +64,6 @@ try {
                 if(!empty($_FILES['new_photo']['name'])) {
 
                     #========= Remove the old photo if a new one is being uploaded =====
-
-                    /** *
-                        check in db what way i have path for photos saved and fix it in case it is the other way
-                    */
                     if (!empty($existing_photo) && file_exists(dirname(__DIR__, 2) .'/'. $existing_photo)) {
                         unlink(dirname(__DIR__, 2) .'/'. $existing_photo);
                     }

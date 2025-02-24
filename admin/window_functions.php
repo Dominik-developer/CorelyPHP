@@ -1,14 +1,15 @@
 <?php
-    // functions with structure of windows for admin panel 
+declare(strict_types=1);
+
+// functions with structure of windows for admin panel 
 
 if(!isset ($_SESSION['adminLoged']))  
 {
     header('Location:panel.login.php');
     exit();
 }
-
     // dashboard ==========================================
-    function dashboard(){
+    function dashboard(): void{
     ?>
 
     <article class="window">
@@ -28,7 +29,7 @@ if(!isset ($_SESSION['adminLoged']))
 
 
     // all articles ==========================================
-    function allArticles(){
+    function allArticles(): void{
     ?>
 
     <article class="window">
@@ -50,7 +51,7 @@ if(!isset ($_SESSION['adminLoged']))
 
 
     // add article ==========================================
-    function addArticle(){
+    function addArticle(): void{
     ?>
 
     <article class="window">
@@ -103,7 +104,7 @@ if(!isset ($_SESSION['adminLoged']))
     // edit article ==========================================
 
   
-    function editArticle(){
+    function editArticle(): void{
                 
         if (isset($_GET['id']) && ctype_digit($_GET['id']) && (int)$_GET['id'] > 0) {
         
@@ -213,7 +214,7 @@ if(!isset ($_SESSION['adminLoged']))
     
 
     // service break ==========================================
-    function serviceBreak(){
+    function serviceBreak(): void{
     ?>
     
     <article class="window">
@@ -240,7 +241,7 @@ if(!isset ($_SESSION['adminLoged']))
 
 
     // settings ==========================================
-    function settings(){
+    function settings(): void{
     ?>
         
     <article class="window">
@@ -278,7 +279,7 @@ if(!isset ($_SESSION['adminLoged']))
     }   
 
     // error ==========================================
-    function error() {
+    function error(): void {
     ?>
 
     <article class="window">

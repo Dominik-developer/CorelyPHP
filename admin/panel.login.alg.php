@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 session_start();
 
@@ -21,8 +22,6 @@ if ($conn->connect_errno!=0)
     $password = $_POST['password'];
 
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
-
-    echo 'hash:'.$password_hash;
 
     $login = htmlentities($login, ENT_QUOTES, "UTF-8");
 
@@ -51,6 +50,8 @@ if ($conn->connect_errno!=0)
 
                 //Set the Expires header to ensure that the page is considered expired
                 header('Expires: Wed, 11 Jan 1984 05:00:00 GMT');
+
+                session_regenerate_id(true); 
 
                 header('Location: panel.php');
 
