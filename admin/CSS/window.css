@@ -22,7 +22,7 @@ article.window {
 /** window content */
 .main .content {
     padding: 20px;
-    background-color: #f2f2f2; /* Kolor tła wewnętrznej sekcji */
+    /*background-color: #f2f2f2;*/ /* Kolor tła wewnętrznej sekcji */
     border-radius: 8px; 
     box-sizing: border-box;
     margin-top: 10px;
@@ -35,7 +35,6 @@ article.window {
 
 /* === GLOBAL STYLES ==== */
 .content {
-    /*background-color: #f2f2f2;*/
     padding: 20px;
     width: 100%;
     height: auto;
@@ -67,7 +66,6 @@ input[type=checkbox] {
 
 button,
 input[type=submit] {
-    /*background-color: red;*/
     background-color: #4070f4;
     color: white;
     padding: 12px 20px;
@@ -80,7 +78,6 @@ input[type=submit] {
 
 button:hover,
 input[type=submit]:hover {
-    /*background-color: rgb(235,14,14);*/
     background-color: #2359ee;
 }
 
@@ -156,9 +153,10 @@ input[type=file] {
 }
 
 #table-container-inner{
-    overflow-x: scroll;
+    overflow-y: auto;
+    overflow-x: auto;
     white-space: nowrap; /* To ensure the content stays on one line for scrolling */
-    width: 100%; /* możesz dostosować */
+    width: 100%;
     max-width: 2000px; 
 }
 
