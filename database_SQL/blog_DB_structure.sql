@@ -1,79 +1,64 @@
+-- Databse 'blog': structure
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS `blog`;
-USE `blog`;
-
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Table structure for table `admin`
---
+-- --------------------------------------------------------
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `login` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL
+  `id` int NOT NULL AUTO_INCREMENT,
+  `login` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Table structure for table `articles`
---
+-- --------------------------------------------------------
 
 CREATE TABLE `articles` (
-  `ID` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `text` text NOT NULL,
-  `photo_path` varchar(255) NOT NULL,
-  `date_of_publish` timestamp NOT NULL DEFAULT current_timestamp()
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `text` text COLLATE utf8mb4_general_ci NOT NULL,
+  `photo_path` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `date_of_publish` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Table structure for table `service`
---
+-- --------------------------------------------------------
+
+CREATE TABLE `page_views_daily` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `page` varchar(191) NOT NULL,
+  `visit_date` date NOT NULL DEFAULT (curdate()),
+  `visit_count` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_page_date` (`page`,`visit_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
 
 CREATE TABLE `service` (
-  `id` int(11) NOT NULL,
-  `service_status` tinyint(1) NOT NULL
+  `id` int NOT NULL AUTO_INCREMENT,
+  `service_status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Table structure for table `settings`
---
+-- --------------------------------------------------------
 
 CREATE TABLE `settings` (
-  `id` int(11) NOT NULL,
-  `is_active` tinyint(1) NOT NULL
+  `id` int NOT NULL AUTO_INCREMENT,
+  `is_active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Indexes for tables
---
+-- --------------------------------------------------------
 
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `articles`
-  ADD PRIMARY KEY (`ID`);
-
-ALTER TABLE `service`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for tables
---
-
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-ALTER TABLE `articles`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+CREATE TABLE `visitors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cookie_id` varchar(64) DEFAULT NULL,
+  `visit_count` int DEFAULT '1',
+  `first_visit` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cookie_id` (`cookie_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 COMMIT;

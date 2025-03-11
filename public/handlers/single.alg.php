@@ -9,7 +9,7 @@ function articles($restored_title): void {
 
     if ($conn->connect_errno) {
         header("HTTP/1.1 500 Internal Server Error");
-        header("Location: error_404.php");
+        header("Location: ./error_404.php");
         exit();
     }
 
@@ -45,7 +45,7 @@ function articles($restored_title): void {
             </article>';
     } else {
         header("HTTP/1.1 404 Not Found");
-        header("Location: error_404.php");
+        header("Location: ./error_404.php");
         exit();
     }
 

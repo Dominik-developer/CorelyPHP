@@ -3,10 +3,14 @@
 
 session_start();
 
-include_once 'functions.php';
-require_once 'service.alg.php';
+include './handlers/functions.php';
+require_once './handlers/service.alg.php';
+require_once './handlers/cookies.php';
 
 service();
+
+$page = 'main.php';
+cookie($page);
 
 ?>
 <html lang="en">
@@ -15,7 +19,10 @@ service();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Home Page</title>
 
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="./CSS/main.css" />
+    <link rel="stylesheet" href="./CSS/popout.css" />
+
+    <script src="./JS/popout.js"></script>
 
 </head>
 <body>
@@ -46,5 +53,10 @@ service();
         ?>
     </footer>
 
+    <?php
+        cookie_popout()
+    ?>
+    
+</div>
 </body>
 </html>
