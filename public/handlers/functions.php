@@ -1,9 +1,9 @@
 <?php
 
 // header
-function head(): string{
+function head(): void{
     
-    return '<h1> Blog </h1>';
+    echo '<h1> Blog </h1>';
 }
 
 // main
@@ -11,14 +11,12 @@ function all_articles(): void{
 
     require 'connect.php';
 
-
     $conn = @new mysqli($host, $db_user, $db_password, $db_name);
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    //error_reporting(E_ALL);
+    //ini_set('display_errors', 1);
 
     if ($conn->connect_errno) {
-        //echo "Error: " . $conn->connect_error;
-        echo 'error';
+        echo 'Error';
         return;
     } else {
 
@@ -56,7 +54,7 @@ function all_articles(): void{
 
             }
         } else {
-            echo "0 results";
+            echo "No results found.";
         }
 
         $conn->close(); 
@@ -65,13 +63,15 @@ function all_articles(): void{
 
 
 //footer
-function foot(): string{
+function foot(): void{
+
+    $date = date("Y");
     
-    return '
+    echo "
         <div>
-            <a>&copy 2024 - <?php echo date("Y"); ?> Dominik-developer <!--project:one®--></a>
+            <a>&copy 2024 - {$date} Dominik-developer <!--project:one®--></a>
             <br><br>
              <a> Contact: www.blog@example.com</a> <!--<a>+00 000 000 000  </a>-->
-        </div>';
+        </div>";
    
 }

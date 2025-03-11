@@ -11,7 +11,7 @@ function service(): void
     {
         //echo "Error: ".$conn->connect_error;
         echo 'Error';
-        header('Location: error.html');
+        header('Location: ./error.html');
     }
     else
     {
@@ -44,7 +44,7 @@ function service(): void
             //unset($_SESSION['status']);
 
             echo 'last error ';
-            echo('Location: error.html');
+            echo('Location: ./error.html');
 
             }
         }

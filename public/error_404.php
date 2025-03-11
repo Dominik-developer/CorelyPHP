@@ -3,11 +3,15 @@
 
 session_start();
 
-include_once 'functions.php';
-require_once 'service.alg.php';
-include 'connect.php';
+include_once './handlers/functions.php';
+require_once './handlers/service.alg.php';
+require_once './handlers/cookies.php';
 
 service();
+
+$page = 'error_404.php';
+cookie($page);
+
 
 ?>
 <html lang="en">
@@ -16,8 +20,10 @@ service();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 error </title>
 
-    <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="single.css" />
+    <link rel="stylesheet" href="./CSS/main.css" />
+    <link rel="stylesheet" href="./CSS/single.css" />
+
+    <script src="./JS/popout.js"></script>
 
 </head>
 <body>
