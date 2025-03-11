@@ -75,3 +75,14 @@ function foot(): void{
         </div>";
    
 }
+
+function cookie_popout(): void {
+
+    echo '
+        <div id="cookie-popup" class="cookie-popup">
+            <p>This website uses cookies to improve your experience. You can accept or reject them.</p>
+            <button id="accept-cookies">Accept</button>
+            <button id="reject-cookies">Reject</button>
+        <a href="" id="cookie-settings">Settings</a>
+        ';
+}

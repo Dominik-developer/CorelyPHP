@@ -15,6 +15,7 @@ The project is ready for use but is still evolving. Work is ongoing to fix bugs 
 1 - cookies for users, db collects data for analytics
 2 - tables for cookies added
 3 - JS folder
+4 - popout for cookies
 .....
 
 ### Changed

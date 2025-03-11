@@ -20,6 +20,7 @@ cookie($page);
     <title>Blog Home Page</title>
 
     <link rel="stylesheet" href="./CSS/main.css" />
+    <link rel="stylesheet" href="./CSS/popout.css" />
 
     <script src="./JS/popout.js"></script>
 
@@ -52,5 +53,10 @@ cookie($page);
         ?>
     </footer>
 
+    <?php
+        cookie_popout()
+    ?>
+    
+</div>
 </body>
 </html>

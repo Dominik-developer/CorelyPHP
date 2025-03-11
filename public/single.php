@@ -64,5 +64,9 @@ $restored_title = str_replace('_', ' ', filter_var($_GET['title'], FILTER_SANITI
         ?>
     </footer>
 
+    <?php
+        cookie_popout()
+    ?>
+
 </body>
 </html>

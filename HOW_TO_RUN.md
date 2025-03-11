@@ -8,9 +8,9 @@ CorelyPHP is a ready-to-deploy blogging platform designed for efficient web deve
 
 Before you begin, ensure you have the following installed:
 
-- PHP (>= 8.0)
-- MySQL (or another compatible database)
-- XAMPP
+- PHP (>= 8.0) <!--(in XAMPP/MAMP)-->
+- MySQL (or another compatible database) <!--(in XAMPP/MAMP)-->
+- XAMPP / MAMP
 - Git
 
 ## Installation

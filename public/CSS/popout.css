@@ -1,0 +1,41 @@
+.cookie-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; 
+}
+
+.cookie-popup a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.cookie-popup button {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.cookie-popup button:hover {
+    background-color: #ddd;
+}
+
+.cookie-popup button#reject-cookies {
+    background-color: #ff4d4d; /* Czerwony dla opcji odrzucenia */
+    color: white;
+}
+
+.cookie-popup button#reject-cookies:hover {
+    background-color: #cc0000
+}

@@ -59,5 +59,9 @@ cookie($page);
         ?>
     </footer>
 
+    <?php
+        cookie_popout()
+    ?>
+
 </body>
 </html>
