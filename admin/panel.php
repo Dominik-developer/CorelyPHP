@@ -77,7 +77,7 @@ include 'window_functions.php';
     <nav>
         <div class="logo">
             <i class="bx bx-menu menu-icon topbar"></i>
-            <span class="logo-name topbar">Admin Panel <?php /*echo $_SESSION['id'];*/ ?></span>
+            <span class="logo-name topbar">Admin Panel #<?php echo $_SESSION['id']; ?></span>
         </div>
 
         <div class="sidebar">
@@ -119,18 +119,23 @@ include 'window_functions.php';
                         </a>
                     </li>
                     <li class="list">
+                        <a class="nav-link" href="?window=themes">
+                            <i class="bx bxs-color icon"></i>
+                            <span class="link">Themes</span>
+                        </a>
+                    </li>
+                    <li class="list">
                         <a class="nav-link" href="?window=service-break">
                             <i class="bx bx-hard-hat icon"></i>
                             <span class="link">Service break</span>
                         </a>
                     </li>
-                    <!--<li class="list">
+                    <li class="list">
                         <a class="nav-link" href="?window=analytics">
                             <i class="bx bx-pie-chart-alt-2 icon"></i>
-                            <i class="bx bxs-analyse icon" ></i>
                             <span class="link">Analytics</span>
                         </a>
-                    </li>-->
+                    </li>
                     <!--<li class="list">
                         <a class="nav-link" href="?window=files">
                             <i class="bx bx-folder-open icon"></i>
@@ -192,9 +197,17 @@ include 'window_functions.php';
 
                 editArticle();
 
+            }elseif($_GET["window"] == "themes"){
+
+                themes();
+
             }elseif($_GET["window"] == "service-break"){
 
                 serviceBreak();
+
+            }elseif($_GET["window"] == "analytics"){
+
+                analytics();
 
             }elseif($_GET["window"] == "settings"){
 

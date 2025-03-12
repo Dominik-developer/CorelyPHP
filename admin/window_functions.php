@@ -211,6 +211,34 @@ if(!isset ($_SESSION['adminLoged']))
 
         }
     }
+
+    // add theme ==========================================
+
+    function themes(): void {
+    ?>
+
+    <article class="window">
+        <section class="main" id="service">
+            <h2>Add theme</h2>
+            <section class="content">
+                <!--<form action="./algo/theme.alg.php" method="POST">-->
+                <form method="POST">
+                    <input type="hidden" name="setting_id" value="1">
+                        <div class="row align-checkbox">
+                            <!-- FORM -->
+                            <label for="visibility-checkbox">I confirm adding new theme.</label>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <button type="submit" name="submit">Add theme</button>
+                        </div>        
+                </form>
+            </section>
+        </section>
+    </article>
+
+    <?php
+    }
     
 
     // service break ==========================================
@@ -236,6 +264,22 @@ if(!isset ($_SESSION['adminLoged']))
         </section>
     </article>
     
+    <?php
+    }
+
+    // analytics ==========================================
+    function analytics(): void {
+    ?>
+
+    <article class="window">
+        <section class="main" id="service">
+            <h2>Analytics</h2>
+            <section class="content">
+                Analytics will be available since version 1.3.0
+            </section>
+        </section>
+    </article>
+
     <?php
     }
 
