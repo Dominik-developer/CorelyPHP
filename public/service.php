@@ -10,10 +10,13 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <!--== CSS FILE ==-->
-    <link rel="stylesheet" href="./CSS/main.css" />
+    <?php
+        include "../themes/index.php";
+    ?>
 
-    <!--== CSS STYLES ==-->
+    <!-- == SYSTEM == -->
+    <link rel="stylesheet" href="./CSS/popout.css" />
+    <script src="./JS/popout.js"></script>
     <style>
         body{
             align-items: center;
@@ -22,13 +25,6 @@
             overflow: hidden;
         }
     </style>
-
-    <!--== JS FILE ==-->
-    <script src="./JS/popout.js"></script>
-
-    <!--== JS SCRIPT ==-->
-    <script>
-    </script>
 </head>
 
 <body>

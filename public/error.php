@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error page</title>
 
-    <!--== CSS FILE ==-->
-    <link rel="stylesheet" href="./CSS/main.css" />
+    <?php
+        include "../themes/index.php";
+    ?>
 
-    <!--== CSS STYLES ==-->
+    <!-- == SYSTEM == -->
+    <link rel="stylesheet" href="./CSS/popout.css" />
+    <script src="./JS/popout.js"></script>
     <style>
         body{
             align-items: center;
@@ -16,15 +19,7 @@
             max-height: 100vh !important;
             overflow: hidden;
         }
-
     </style>
-
-    <!--== JS FILE ==-->
-    <script src="./JS/popout.js"></script>
-
-    <!--== JS SCRIPT ==-->
-    <script>
-    </script>
 </head>
 
 <body>

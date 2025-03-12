@@ -20,8 +20,12 @@ cookie($page);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 error </title>
 
-    <link rel="stylesheet" href="./CSS/main.css" />
-    <link rel="stylesheet" href="./CSS/single.css" />
+    <?php
+        include "../themes/index.php";
+    ?>
+    
+    <!-- == SYSTEM == -->
+    <link rel="stylesheet" href="./CSS/popout.css" />
 
     <script src="./JS/popout.js"></script>
 
