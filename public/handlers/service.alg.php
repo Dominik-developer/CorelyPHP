@@ -10,8 +10,8 @@ function service(): void
     if ($conn->connect_errno!=0)
     {
         //echo "Error: ".$conn->connect_error;
-        echo 'Error';
-        header('Location: ./error.html');
+        echo 'Error.';
+        header('Location: ./error.php');
     }
     else
     {
@@ -31,7 +31,7 @@ function service(): void
                 if(!$_SESSION['service_status'] == 0)
                 {
                     //unset($_SESSION['status']);
-                    header('Location: service.html');
+                    header('Location: service.php');
                 }
                 else
                 {
@@ -43,8 +43,8 @@ function service(): void
             //$_SESSION['bigError'];
             //unset($_SESSION['status']);
 
-            echo 'last error ';
-            echo('Location: ./error.html');
+            echo 'Last error.';
+            header('Location: ./error.php');
 
             }
         }
