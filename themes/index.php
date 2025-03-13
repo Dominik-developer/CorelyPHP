@@ -4,19 +4,36 @@
 require '../themes/handlers/index.php';
 
 $theme = themeChecker();
-
 $theme = $theme ?? 'default';
 
-    echo '      <!-- ====== CSS ====== --> ' . PHP_EOL;;
-    echo '      <link rel="stylesheet" href="../themes/' . $theme . '/CSS/main.css">' . PHP_EOL;
-    echo '      <link rel="stylesheet" href="../themes/' . $theme . '/CSS/single.css">' . PHP_EOL;
+function load_assets(string $type, string $themePath): void {
 
-    //echo '      <!-- ====== Boxicons CSS ====== --> ' . PHP_EOL;
-    //echo "      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>".  PHP_EOL;
+    $dir = $themePath.'/'.$type;
 
-    //echo '      <!-- ====== JS ====== --> ' . PHP_EOL;;
-    //echo '      <script src="../themes/' . $theme . '/JS/index.js"></script>' . PHP_EOL;
+    if (!is_dir($dir)) {
+        echo '<!-- Error: Folder '.$dir.' does not exist! -->';
+    }
 
-    //echo '      <!-- ====== noscript = CSS = JS ====== --> ' . PHP_EOL;
-    //echo '      <noscript></noscript>' . PHP_EOL;
+    $files = glob($dir . '/*.'.$type);
+    if (!$files) {
+        echo '<!-- No '.$type.' files found in '.$dir.' -->';
+    }
 
+    foreach ($files as $file) {
+        $url = str_replace($_SERVER['DOCUMENT_ROOT'], '', realpath($file));
+        $url = str_replace('\\', '/', $url); // fix for Windows
+
+        if ($type === 'css') {
+            echo "<link rel='stylesheet' href='$url'>\n";
+        } elseif ($type === 'js') {
+            echo "<script src='$url'></script>\n";
+        } else {
+            echo "<!-- Error: Unknown file type '$type' -->\n";
+        }
+    }
+    echo PHP_EOL;
+}
+
+load_assets('css', '../themes/'.$theme);
+
+load_assets('js', '../themes/'.$theme);

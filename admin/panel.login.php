@@ -63,9 +63,9 @@ if(ENV_DEV == true){
             <?php
             echo '<br><br><br>';
 
-            include './v_auth/version.php';
+            include_once "./v_auth/version.php";
 
-            echo '<p>';
+            echo '<p style="color:red">';
                 if (version_compare(PHP_VERSION, PHP_VERSION_REQ, '<')) {
                     echo('The required PHP version is ' . PHP_VERSION_REQ . ' or higher. The installed version is: ' . PHP_VERSION . '<br><br>');
                     echo('Version: ' . PHP_VERSION_ADVICE);
