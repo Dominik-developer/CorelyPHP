@@ -7,7 +7,8 @@ function updateVisitCount($cookie_id, $page): void {
     $conn = new mysqli($host, $db_user, $db_password, $db_name);
 
     if ($conn->connect_errno) {
-        die("Connection failed: " . $conn->connect_error);
+        echo("Connection failed: " . $conn->connect_error);
+        header('Location: error.php');
     }
 
     // Sprawdzamy, czy w tabeli visitors istnieje już taki rekord (unikalny cookie_id)

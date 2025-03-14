@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
             expires = "; expires=" + date.toUTCString();
         }
-        document.cookie = name + "=" + value + expires + "; path=/public/"; //path may need to be changed for client
+        document.cookie = name + "=" + value + expires + "; path=/server/CorelyPHP-1.1.0/public/";
     }
 
     // Obsługa zgody na ciasteczka

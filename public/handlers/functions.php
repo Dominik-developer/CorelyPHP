@@ -71,7 +71,7 @@ function foot(): void{
         <div>
             <a>&copy 2024 - {$date} Dominik-developer <!--project:one®--></a>
             <br><br>
-             <a> Contact: www.blog@example.com</a> <!--<a>+00 000 000 000  </a>-->
+            <a> Contact: www.blog@example.com</a> <!--<a>+00 000 000 000  </a>-->
         </div>";
    
 }

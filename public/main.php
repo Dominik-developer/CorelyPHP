@@ -19,11 +19,13 @@ cookie($page);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Home Page</title>
 
-    <link rel="stylesheet" href="./CSS/main.css" />
+    <?php
+        include "../themes/index.php";
+    ?>
+
+    <!-- == SYSTEM == -->
     <link rel="stylesheet" href="./CSS/popout.css" />
-
     <script src="./JS/popout.js"></script>
-
 </head>
 <body>
     <header>
