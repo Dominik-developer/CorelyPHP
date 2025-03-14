@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once 'service.alg.php';
+require_once './handlers/service.alg.php';
 
     service();
 

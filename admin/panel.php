@@ -20,6 +20,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // Last Activity Time Update
 //additional files
 require_once 'panel.connect.php';
 include 'window_functions.php';
+include './v_auth/version.php';
 
 ?>
 <!DOCTYPE html>
@@ -77,13 +78,14 @@ include 'window_functions.php';
     <nav>
         <div class="logo">
             <i class="bx bx-menu menu-icon topbar"></i>
-            <span class="logo-name topbar">Admin Panel <?php /*echo $_SESSION['id'];*/ ?></span>
+            <span class="logo-name topbar"><?php echo 'Admin Panel #'. $_SESSION['id']; ?></span>
+            <!--<span class="logo-name topbar" id="name-right"><?php echo APP_NAME ?></span>-->
         </div>
 
         <div class="sidebar">
             <div class="logo">
                 <i class="bx bx-menu menu-icon"></i>
-                <span class="logo-name">Admin Panel </span>
+                <span class="logo-name"><?php echo 'Admin Panel'; //APP_NAME ?> </span>
             </div>
 
             <div class="sidebar-content">
@@ -119,18 +121,23 @@ include 'window_functions.php';
                         </a>
                     </li>
                     <li class="list">
+                        <a class="nav-link" href="?window=themes">
+                            <i class="bx bxs-color icon"></i>
+                            <span class="link">Themes</span>
+                        </a>
+                    </li>
+                    <li class="list">
                         <a class="nav-link" href="?window=service-break">
                             <i class="bx bx-hard-hat icon"></i>
                             <span class="link">Service break</span>
                         </a>
                     </li>
-                    <!--<li class="list">
+                    <li class="list">
                         <a class="nav-link" href="?window=analytics">
                             <i class="bx bx-pie-chart-alt-2 icon"></i>
-                            <i class="bx bxs-analyse icon" ></i>
                             <span class="link">Analytics</span>
                         </a>
-                    </li>-->
+                    </li>
                     <!--<li class="list">
                         <a class="nav-link" href="?window=files">
                             <i class="bx bx-folder-open icon"></i>
@@ -143,9 +150,10 @@ include 'window_functions.php';
                 <div class="bottom-content">
                     <ul>
                         <li class="list">
-                            <a class="nav-link" id="section4Btn" href="?window=settings">
-                                <i class="bx bx-cog icon"></i>
-                                <span class="link">Settings</span>
+                            <a class="nav-link" id="section4Btn" href="?window=password">
+                                <!--<i class="bx bx-cog icon"></i>-->
+                                <i class="bx bxs-key icon"></i>
+                                <span class="link">Password</span>
                             </a>
                         </li>
                         <li class="list">
@@ -155,7 +163,7 @@ include 'window_functions.php';
                             </a>
                         </li>
                     </ul>
-                    <a class="list";>&copy 2024 - <?php echo date("Y"); ?> Admin Panel</a>
+                    <a class="list";>&copy 2024 -  <?php echo date("Y") . ' ' . APP_NAME . ' ' . APP_VERSION; ?></a>
                 </div>
             </div>
         </div>
@@ -170,9 +178,7 @@ include 'window_functions.php';
         if (isset($_GET["window"]) && $_GET["window"] == "dashboard") {
             
             dashboard();
-            
-            echo password_hash('pass', PASSWORD_DEFAULT);
-            
+                        
         }else{ // if new widows added, there must be added new if statements added as well
 
             if(!isset($_GET["window"]) || $_GET["window"] == "") {
@@ -192,13 +198,21 @@ include 'window_functions.php';
 
                 editArticle();
 
+            }elseif($_GET["window"] == "themes"){
+
+                themes();
+
             }elseif($_GET["window"] == "service-break"){
 
                 serviceBreak();
 
-            }elseif($_GET["window"] == "settings"){
+            }elseif($_GET["window"] == "analytics"){
 
-                settings();
+                analytics();
+
+            }elseif($_GET["window"] == "password"){
+
+                password();
 
             }else{ 
             

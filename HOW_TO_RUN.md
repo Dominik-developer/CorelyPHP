@@ -8,9 +8,9 @@ CorelyPHP is a ready-to-deploy blogging platform designed for efficient web deve
 
 Before you begin, ensure you have the following installed:
 
-- PHP (>= 8.0)
-- MySQL (or another compatible database)
-- XAMPP
+- PHP (>= 8.2) (8.0+ also should be fine but not tested) <!--(in XAMPP/MAMP)-->
+- MySQL (or another compatible database) <!--(in XAMPP/MAMP)-->
+- XAMPP / MAMP
 - Git
 
 ## Installation
@@ -25,9 +25,9 @@ Before you begin, ensure you have the following installed:
 2. Set up the database:
 
    - Open phpMyAdmin in your browser (`http://localhost/phpmyadmin`).
-   - Import the SQL files located in the `sql` folder:
-     - Create a new database by importing `database_structure.sql`
-     - Add the `database_data.sql`
+   - Import the SQL files located in the `SQL` folder:
+     - Create a new database by importing `blog_DB_structure.sql`
+     - Add the `blog_DB_data.sql`
 
 3. Start the development server using XAMPP:
 

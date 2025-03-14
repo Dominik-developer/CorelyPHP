@@ -7,9 +7,9 @@ if(!isset ($_SESSION['adminLoged']))
     exit();
 }
 
-function dashboard_data(): string {
+function dashboard_data(): void {
 
-    return'
+    echo'
         <div id="hello">
             Welcome on admin panel for your blog!
             <br>

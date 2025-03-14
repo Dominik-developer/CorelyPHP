@@ -2,8 +2,6 @@
 
 ‼️ Security suggestions should be treated as invalid, not as vulnerabilities.
 
-## Security Policy
-
 * **Latest Releases:** The newest release, currently version v1.1.0, is the only version receiving active security updates. We strongly recommend using the latest version whenever possible.
 
 * **Review Changelog for Updates:** For minor updates or changes, please refer to the changelog to understand what has been updated or fixed.
@@ -26,6 +24,7 @@
 | v0.1.0-beta   | :negative_squared_cross_mark: |
 | v1.0.0        | :negative_squared_cross_mark: |
 | v1.1.0        | :white_check_mark: |
+| v1.2.0        | :white_check_mark: |
 
 ## Reporting a Vulnerability
 

@@ -59,6 +59,20 @@ if(ENV_DEV == true){
                 if(isset($_SESSION['loginError'])) echo $_SESSION['loginError'];
             ?>
         </div>
+        <div>
+            <?php
+            echo '<br><br><br>';
+
+            include_once "./v_auth/version.php";
+
+            echo '<p style="color:red">';
+                if (version_compare(PHP_VERSION, PHP_VERSION_REQ, '<')) {
+                    echo('The required PHP version is ' . PHP_VERSION_REQ . ' or higher. The installed version is: ' . PHP_VERSION . '<br><br>');
+                    echo('Version: ' . PHP_VERSION_ADVICE);
+                }
+            echo '</p>';
+            ?>
+        </div>
     </div>
 </main>
 

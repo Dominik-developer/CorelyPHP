@@ -15,6 +15,7 @@ All files are divided into the following sections:
 - **`articles_photos/`** - Holds photos for articles
 - **`docs/`** – Holds documentation  
 - **`public/`** – Contains user-facing files  
+- **`themes/`** – Contains themes for client front-end
 
 This structured approach helps prevent backend modifications while rebuilding the frontend. The only challenge is the integration of PHP functions that generate HTML dynamically, but this can be adjusted when refining queries and templates.
 
@@ -43,6 +44,6 @@ For more details on the project, check out the following files:
 - 🌍 **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** – Community guidelines  
 - 🙌 **[SUPPORT.md](SUPPORT.md)** – Support for community
 
-## **Current Version: v1.1.0**
+## **Current Version: v1.2.0**
 
 The versioning system ensures clarity on stable releases. Minor patches may not require immediate updates, but always check the **CHANGELOG.md** for details on new features and fixes.
