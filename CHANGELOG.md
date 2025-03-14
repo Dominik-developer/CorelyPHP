@@ -11,11 +11,19 @@ The project is ready for use but is still evolving. Work is ongoing to fix bugs 
 ### Added
 <!-- - Initial examples of added changelog entries. -->
 
+`/root`
+1 - themes folder
+
 `/public`
-1 - cookies for users, db collects data for analytics
+1 - cookies for users,
 2 - tables for cookies added
 3 - JS folder
 4 - popout for cookies
+5 - collecting data for analytics
+
+`/admin`
+1 - added 2 new windows: theme and analytics
+2 - build algo to change theme in db
 .....
 
 ### Changed
@@ -23,6 +31,10 @@ The project is ready for use but is still evolving. Work is ongoing to fix bugs 
 
 `/public`
 1 - structure of /public fixes
+
+`/admin`
+1 - chagne name of setting window,function to password
+2 - error function
 .....
 
 ### Fixed
