@@ -1,6 +1,5 @@
 <?php
 
-
 function themeChecker(): string {
 
     require 'connect.php'; 
@@ -24,4 +23,21 @@ function themeChecker(): string {
     } else {
         return 'default';
     }
+}
+
+function getAvailableThemes(): array {
+    $themesDir = dirname(__DIR__) . '/'; // one higher: "themes/"
+    
+    if (!is_dir($themesDir)) {
+        return [];
+    }
+
+    $themes = array_filter(scandir($themesDir), function($folder) use ($themesDir) {
+        return is_dir($themesDir . $folder) && 
+               !in_array($folder, ['.', '..', 'handlers']);
+    });
+
+    //print_r(array_values($themes));
+
+    return array_values($themes); // reset indexes
 }

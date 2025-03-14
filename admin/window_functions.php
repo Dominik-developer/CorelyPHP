@@ -102,8 +102,6 @@ if(!isset ($_SESSION['adminLoged']))
 
 
     // edit article ==========================================
-
-  
     function editArticle(): void{
                 
         if (isset($_GET['id']) && ctype_digit($_GET['id']) && (int)$_GET['id'] > 0) {
@@ -212,26 +210,40 @@ if(!isset ($_SESSION['adminLoged']))
         }
     }
 
-    // add theme ==========================================
 
+    // add theme ==========================================
     function themes(): void {
     ?>
 
     <article class="window">
         <section class="main" id="service">
-            <h2>Add theme</h2>
+            <h2>Themes</h2>
             <section class="content">
-                <!--<form action="./algo/theme.alg.php" method="POST">-->
-                <form method="POST">
-                    <input type="hidden" name="setting_id" value="1">
-                        <div class="row align-checkbox">
-                            <!-- FORM -->
-                            <label for="visibility-checkbox">I confirm adding new theme.</label>
-                        </div>
+                <form action="./algo/theme.alg.php" method="POST">
+                    <div class="row">
+                        <label for="theme">Choose theme: </label>
+                        <select name="theme" id="theme">
+                            <?php
+                                include '../themes/handlers/index.php';
+
+                                $themes = getAvailableThemes();
+                                $currentTheme = themeChecker() ?? '';
+
+                                foreach ($themes as $theme) {
+                                    $selected = ($theme === $currentTheme) ? 'selected' : '';
+                                    echo "<option value='$theme' " . ($selected ? 'selected' : '') . ">$theme</option>";
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="row align-checkbox">
+                        <input type="checkbox" id="visibility-checkbox" name="visibility" required="required">
+                        <label for="visibility-checkbox">I confirm the change of theme for client.</label>
+                    </div>
                         <br>
-                        <div class="row">
-                            <button type="submit" name="submit">Add theme</button>
-                        </div>        
+                    <div class="row">
+                        <button type="submit">Zmień motyw</button>
+                    </div>
                 </form>
             </section>
         </section>
@@ -267,6 +279,7 @@ if(!isset ($_SESSION['adminLoged']))
     <?php
     }
 
+
     // analytics ==========================================
     function analytics(): void {
     ?>
@@ -275,7 +288,7 @@ if(!isset ($_SESSION['adminLoged']))
         <section class="main" id="service">
             <h2>Analytics</h2>
             <section class="content">
-                Analytics will be available since version 1.3.0
+                Analytics will be available since version 1.3.0.
             </section>
         </section>
     </article>
@@ -284,13 +297,13 @@ if(!isset ($_SESSION['adminLoged']))
     }
 
 
-    // settings ==========================================
-    function settings(): void{
+    // password ==========================================
+    function password(): void{
     ?>
         
     <article class="window">
-        <section class="main" id="settings">
-            <h2>Settings</h2>
+        <section class="main" id="password"> <?php //id="settings" ?>
+            <h2>Password</h2>
                 <section class="content">
                     <!-- password -->
                     <form action="./algo/password.alg.php" method="POST">
@@ -322,6 +335,7 @@ if(!isset ($_SESSION['adminLoged']))
     <?php
     }   
 
+
     // error ==========================================
     function error(): void {
     ?>
@@ -330,8 +344,10 @@ if(!isset ($_SESSION['adminLoged']))
         <section class="main" id="error">
             <h2>Something went wrong</h2>
             <section class="content">
-                <span>Something went wrong, please reload the page with the link below</span>
-                <span><a href="panel.php?window=dashboard">Reload</a></span>
+                <span>Something went wrong, please reload the page with the link below:</span>
+                <br>
+                <br>
+                <span><a href="panel.php?window=dashboard"><button>Reload</button></a></span>
             </section>
         </section>
     </article>
