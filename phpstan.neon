@@ -1,8 +1,15 @@
 parameters:
-    level: 1  # 0->9
+    level: 5
     paths:
-        - admin
+        - core
         - public
+    autoload_files:
+        - core/config.php
+
+    checkMissingIterableValueType: false
+    checkUninitializedProperties: true
+    checkMissingVarReturn: true
+
     ignoreErrors:
-        - '#Call to an undefined method#'
-        - '#Property .* does not exist#'
+        - '#Call to function mysqli_.*#'
+        - '#Undefined variable: _SERVER#'

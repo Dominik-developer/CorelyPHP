@@ -50,4 +50,5 @@ To report a vulnerability:
 * I may comment on your issue, so please turn on notifications to stay updated.
 
 Thank you for reporting issues and helping make the project more secure!  
-- Main developer: **Dominik-developer** 
+
+Main developer: **Dominik-developer**

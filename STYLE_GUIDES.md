@@ -2,9 +2,9 @@
 
 This document outlines the coding and formatting standards to be followed when contributing to [CorelyPHP](https://github.com/Dominik-developer/CorelyPHP).
 
-This guideline is still in development and probaby will take a while before it will appears here because project is private now on GitHub. 
+This guideline is still in development and probaby will take a while before it will appears here because project is private now on GitHub.
 
-If you nedd help create issue with label 'documentation' and tag Dominik-developer. 
+If you nedd help create issue with label 'documentation' and tag Dominik-developer.
 
 <!--
 ## Table of Contents

@@ -1,0 +1,20 @@
+# public_html/.htaccess
+Options -Indexes
+RewriteEngine On
+
+# Jeśli plik lub katalog istnieje – daj go normalnie
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Usuń końcowy slash (opcjonalnie)
+RewriteCond %{REQUEST_URI} ^(.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# Przekieruj wszystko inne do index.php
+RewriteRule ^ index.php [QSA,L]
+
+ErrorDocument 404 /errors/404.php
+ErrorDocument 403 /errors/403.php
+ErrorDocument 500 /errors/500.php
+ErrorDocument 503 /errors/503.php

@@ -2,7 +2,7 @@
 
 First off, thank you for considering contributing to [CorelyPHP](https://github.com/Dominik-developer/CorelyPHP)! 🎉 Your help is greatly appreciated.
 
-## If you've found a bug, please create an issue following these steps:
+## If you've found a bug, please create an issue following these steps
 
 1. **Check for duplicates:** Search [existing issues](https://github.com/Dominik-developer/CorelyPHP/issues) to ensure it hasn’t been reported.
 2. **If it’s a new issue:**
