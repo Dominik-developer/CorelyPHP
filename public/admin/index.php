@@ -31,6 +31,8 @@ $URLparams = include 'router.php';
 
     <meta name="referrer" content="no-referrer">
 
+    <script src="/admin/JS/script.js" defer></script>
+
     <!-----====== CSS ====== -->
     <link rel="stylesheet" type="text/css" href="/admin/CSS/panel.css">
     <link rel="stylesheet" type="text/css" href="/admin/CSS/window.css" >
@@ -72,55 +74,57 @@ $URLparams = include 'router.php';
         <div class="sidebar">
             <div class="logo">
                 <i class="bx bx-menu menu-icon"></i>
-                <span class="logo-name">Admin Panel </span>
+                <span class="logo-name">Admin Panel</span>
             </div>
 
             <div class="sidebar-content">
                 <ul class="lists">
                     <li class="list">
-                        <a class="nav-link" href="./dashboard">
+                        <a class="nav-link" href="/admin/dashboard">
                             <i class="bx bx-home-alt icon"></i>
                             <span class="link">Dashboard</span>
                         </a>
                     </li>
                     <li class="list">
-                        <a class="nav-link"  href="./allArticles">
+                        <a class="nav-link"  href="/admin/content">
                             <i class="bx bxs-grid icon"></i>
-                            <span class="link">All articles</span>
+                            <span class="link">Content</span>
                         </a>
                     </li>
-                    <li class="list">
+                    <!--<li class="list">
                         <a class="nav-link" href="./addArticle">
                             <i class="bx bx-plus-circle icon"></i>
                             <span class="link">Add article</span>
                         </a>
-                    </li>
-                    <li class="list">
+                    </li>-->
+                    <!--<li class="list">
                         <a class="nav-link" href="./editArticle">
                             <i class="bx bx-edit-alt icon"></i>
                             <span class="link">Edit article</span>
                         </a>
-                    </li>
-                    <li class="list">
+                    </li>-->
+                    <!--<li class="list">
                         <a class="nav-link" href="./themes">
                             <i class="bx bxs-color icon"></i>
                             <span class="link">Themes</span>
                         </a>
-                    </li>
+                    </li>-->
+                    <?php if (checkAdminRole() === 'root'): ?>
+                        <li class="list">
+                            <a class="nav-link" href="/admin/admins">
+                                <i class="bx  bx-group icon"></i> 
+                                <span class="link">Admins</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a class="nav-link" href="/admin/maintenanceMode">
+                                <i class="bx bx-hard-hat icon"></i>
+                                <span class="link">Maintenance Mode</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                     <li class="list">
-                        <a class="nav-link" href="./serviceBreak">
-                            <i class="bx bx-hard-hat icon"></i>
-                            <span class="link">Service break</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a class="nav-link" href="./analytics">
-                            <i class="bx bx-pie-chart-alt-2 icon"></i>
-                            <span class="link">Analytics</span>
-                        </a>
-                    </li>
-                    <li class="list">
-                        <a class="nav-link" href="./files">
+                        <a class="nav-link" href="/admin/files">
                             <i class="bx bx-folder-open icon"></i>
                             <span class="link">Files</span>
                         </a>
@@ -171,7 +175,7 @@ $URLparams = include 'router.php';
     ?>
 
     <!-- ---- JS ---- -->
-    <script type="text/javascript" src="./JS/index.js"></script>
+    <!--<script type="text/javascript" src="./JS/script.js"></script>-->
 
 </body>
 </html>

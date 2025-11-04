@@ -4,8 +4,7 @@
         <h2>Dashboard</h2>
         <section class="content">
             <?php
-                //include './algo/dashboard.alg.php';
-                //dashboard_data();
+                echo "<h3>Welcome to the Admin Dashboard!</h3>";
             ?>
         </section>
     </section>

@@ -13,3 +13,8 @@ RewriteRule ^ %1 [R=301,L]
 
 # Przekieruj wszystko inne do index.php
 RewriteRule ^ index.php [QSA,L]
+
+ErrorDocument 404 /admin/errors/404.php
+ErrorDocument 403 /admin/errors/403.php
+ErrorDocument 500 /admin/errors/500.php
+ErrorDocument 503 /admin/errors/503.php

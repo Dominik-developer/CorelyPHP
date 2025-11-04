@@ -311,3 +311,64 @@ a#showBttn {
 .red:hover{
     background-color: #b30000;
 }
+
+
+
+/* content module */
+.tile-grid {
+    max-width: 900px;
+    margin: 0 auto 1rem; /* centered horizontally */
+    display: flex;
+    justify-content: center; /* ensure inner grid is centered */
+    padding: 0 12px;
+}
+
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 720px; /* prevents the grid from stretching to the full 900px for a nicer centered look */
+}
+
+.tile a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background: #f5f5f5;
+    color: #222;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.12s ease, color 0.12s ease, transform 0.08s ease;
+}
+
+.tile a:hover,
+.tile a:focus {
+    background: #0366d6;
+    color: #fff;
+    outline: none;
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+/* smaller screens: 2 columns */
+@media (max-width: 480px) {
+    .tiles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tile a {
+        font-size: 0.95rem;
+    }
+}
+
+/* optional disabled look (if you want to mark a link unavailable) */
+.tile a.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}

@@ -115,7 +115,6 @@ function popout_message(): void {
 function send_email($email, $subject, $msg, $headers): bool {
 
     return mail($email, $subject, $msg, $headers);
-
 }
 
 
@@ -314,6 +313,38 @@ function updateMaintenance() {
     //echo '<div class="success">Service break status changed successfully (now ' . ($newStatus ? 'ENABLED' : 'DISABLED') . ').</div>';
     }
 }
+
+
+
+/********************* Role functions *********************/
+
+function checkAdminRole($login = NULL, $default = 'admin'): string {
+
+    if($login === NULL) {
+
+        $login = $_SESSION['admin_login'] ?? NULL;
+
+        if($login === NULL) {
+            return $default;
+        }
+    }
+    
+    $sql = "SELECT role FROM admins WHERE username = '" . escape($login) . "' ";
+
+    $result = query($sql);
+    confirm($result);
+
+    if(row_count($result) == 1) {
+
+        $row = fetch_array($result);
+
+        return $row['role'];
+    } else {
+        return $default;
+    }
+}
+
+
 
 
 
